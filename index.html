@@ -24,7 +24,7 @@ body{background:#121211;color:#EDECE8;font-family:"Arial Black",Arial,Helvetica,
 .k{font-family:Arial,Helvetica,sans-serif;font-size:2vh;text-transform:uppercase;letter-spacing:2px;color:#A3A19B}
 .v{font-size:10vh;line-height:1.1;font-weight:900;margin-top:.6vh;white-space:nowrap}
 .v.sm{font-size:7vh}
-.v small{font-size:4.2vh}
+.v small{font-size:.42em}
 .n{font-family:Arial,Helvetica,sans-serif;font-size:2.3vh;color:#A3A19B;margin-top:.8vh}
 .bar{height:2.4vh;background:#262624;margin-top:2vh;position:relative}
 .bar i{position:absolute;top:0;bottom:0;left:0;background:#EDECE8}
@@ -90,12 +90,26 @@ function render(data){
   h+='<div class="cell q"><div class="card"><div class="k">Tickets sold</div><div class="v sm">'+(ga+vip)+'</div><div class="n">'+ga+' GA &middot; '+vip+' VIP'+(pkg?' &middot; '+pkg+' team pkg':'')+'</div></div></div>';
   h+='<div class="cell q"><div class="card"><div class="k">Booths sold</div><div class="v sm">'+money(booth)+'</div><div class="n">'+booths+' booth'+(booths===1?'':'s')+'</div></div></div>';
   $("grid").innerHTML=h;
+  fit();
   if(data.updated){
     var u=new Date(data.updated), now=new Date();
     var m=Math.max(0,Math.round((now-u)/60000));
     $("upd").textContent="Data updated "+(m<60?m+" min ago":Math.round(m/60)+" hr ago")+" · since Oct 13";
   }
 }
+// Shrink any big number that would overflow its card (window shapes differ from TV shapes).
+function fit(){
+  var els=document.getElementsByClassName("v");
+  for(var i=0;i<els.length;i++){
+    var el=els[i], card=el.parentNode;
+    el.style.fontSize="";
+    var base=parseFloat(window.getComputedStyle(el).fontSize)||40;
+    var avail=card.clientWidth-(parseFloat(window.getComputedStyle(card).paddingLeft)||0)*2;
+    var size=base,guard=0;
+    while(el.scrollWidth>avail+2&&size>14&&guard<60){size=size*0.93;el.style.fontSize=size+"px";guard++}
+  }
+}
+window.onresize=fit;
 function load(){
   var x=new XMLHttpRequest();
   x.open("GET","data.json?t="+(new Date().getTime()),true);
