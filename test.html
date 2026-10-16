@@ -1,0 +1,20 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>TV test</title>
+<style>body{background:#003366;color:#fff;font-family:Arial,sans-serif;font-size:36px;margin:40px}p{margin:18px 0}</style></head>
+<body>
+<p>1. HTML + CSS works (this page should be blue).</p>
+<p id="js">2. JavaScript: NOT running</p>
+<p id="ua">3. Browser: (needs JavaScript)</p>
+<p id="dt">4. TV date/time: (needs JavaScript)</p>
+<p id="xhr">5. Data file: (needs JavaScript)</p>
+<script>
+document.getElementById("js").innerHTML="2. JavaScript: OK";
+document.getElementById("ua").innerHTML="3. Browser: "+navigator.userAgent;
+document.getElementById("dt").innerHTML="4. TV date/time: "+new Date().toString();
+try{
+var x=new XMLHttpRequest();x.open("GET","data.json?t="+new Date().getTime(),true);
+x.onreadystatechange=function(){if(x.readyState===4){document.getElementById("xhr").innerHTML="5. Data file: status "+x.status+", "+x.responseText.length+" bytes"}};
+x.send();
+}catch(e){document.getElementById("xhr").innerHTML="5. Data file error: "+e.message}
+</script>
+</body></html>
