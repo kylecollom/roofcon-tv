@@ -5,90 +5,108 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
 <title>RoofCON 8 Sales Board</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@112,600;112,800;125,900&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
-:root{--bg:#121211;--panel:#1B1B1A;--ink:#EDECE8;--mute:#A3A19B;--line:#34332F;--hi:#F2B705;--ok:#5FBF86;--warn:#E58A50;
---display:"Archivo","Arial Black",system-ui,sans-serif;--mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace}
-*{box-sizing:border-box}
-html,body{height:100%}
-body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.4 var(--display);overflow:hidden}
-.wrap{height:100%;display:flex;flex-direction:column;padding:2.2vh 3vw;gap:2vh}
-.mast{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:.5vh solid var(--ink);padding-bottom:1.6vh}
-.mark{font:900 clamp(32px,6.5vh,84px)/.9 var(--display);font-stretch:125%;margin:0;letter-spacing:-.01em}
-.mark .o{color:transparent;-webkit-text-stroke:2px var(--mute)}
-.sub{font:600 clamp(12px,2vh,26px)/1.3 var(--display);font-stretch:112%;text-transform:uppercase;letter-spacing:.08em;color:var(--mute);text-align:right}
-.grid{flex:1;display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:1.25fr 1fr;gap:1.6vh 1.6vw;min-height:0}
-.card{background:var(--panel);border:1px solid var(--line);padding:2vh 1.6vw;display:flex;flex-direction:column;justify-content:center;min-width:0}
-.k{font-size:clamp(11px,1.7vh,22px);text-transform:uppercase;letter-spacing:.1em;color:var(--mute)}
-.v{font:800 clamp(30px,9vh,120px)/1.05 var(--display);font-stretch:112%;margin-top:.6vh;white-space:nowrap}
-.v.sm{font-size:clamp(26px,6.5vh,88px)}
-.n{font-size:clamp(12px,2vh,26px);color:var(--mute);margin-top:.6vh}
-.wide{grid-column:span 3}
-.bar{height:2vh;background:#262624;margin-top:2vh;position:relative}
-.bar i{position:absolute;inset:0 auto 0 0;background:var(--ink)}
-.bar b{position:absolute;top:-.6vh;bottom:-.6vh;width:3px;background:var(--hi)}
-.hi{color:var(--hi)}.ok{color:var(--ok)}.warn{color:var(--warn)}
-.foot{font:400 clamp(10px,1.6vh,20px) var(--mono);color:var(--mute);display:flex;justify-content:space-between}
-@media (max-width:800px){body{overflow:auto}.wrap{height:auto}.grid{grid-template-columns:1fr 1fr;grid-template-rows:auto}.wide{grid-column:span 2}.v{font-size:36px}.v.sm{font-size:30px}}
+/* Written for old TV browsers: no CSS variables, grid, clamp(), gap or modern JS. */
+*{-webkit-box-sizing:border-box;box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{background:#121211;color:#EDECE8;font-family:"Arial Black",Arial,Helvetica,sans-serif;font-size:16px;line-height:1.3;overflow:hidden}
+.wrap{height:100%;padding:2vh 3vw}
+.mast{height:12vh;border-bottom:.5vh solid #EDECE8;position:relative}
+.mark{margin:0;font-size:8vh;line-height:1;font-weight:900;position:absolute;left:0;bottom:1vh;letter-spacing:-1px}
+.mark span{color:#A3A19B}
+.sub{position:absolute;right:0;bottom:1.4vh;font-size:2vh;font-family:Arial,Helvetica,sans-serif;font-weight:bold;text-transform:uppercase;letter-spacing:2px;color:#A3A19B}
+.grid{height:80vh;margin:1.5vh -.8vw 0 -.8vw;font-size:0}
+.cell{display:inline-block;vertical-align:top;padding:.8vh .8vw;font-size:16px}
+.c3{width:75%;height:47vh}
+.c1{width:25%;height:47vh}
+.q{width:25%;height:32vh}
+.card{height:100%;background:#1B1B1A;border:1px solid #34332F;padding:2vh 1.6vw;overflow:hidden;display:-webkit-box;display:-webkit-flex;display:flex;-webkit-box-orient:vertical;-webkit-flex-direction:column;flex-direction:column;-webkit-box-pack:center;-webkit-justify-content:center;justify-content:center}
+.k{font-family:Arial,Helvetica,sans-serif;font-size:2vh;text-transform:uppercase;letter-spacing:2px;color:#A3A19B}
+.v{font-size:10vh;line-height:1.1;font-weight:900;margin-top:.6vh;white-space:nowrap}
+.v.sm{font-size:7vh}
+.v small{font-size:4.2vh}
+.n{font-family:Arial,Helvetica,sans-serif;font-size:2.3vh;color:#A3A19B;margin-top:.8vh}
+.bar{height:2.4vh;background:#262624;margin-top:2vh;position:relative}
+.bar i{position:absolute;top:0;bottom:0;left:0;background:#EDECE8}
+.bar b{position:absolute;top:-.6vh;bottom:-.6vh;width:3px;background:#F2B705}
+.hi{color:#F2B705}.ok{color:#5FBF86}.warn{color:#E58A50}
+.foot{position:absolute;left:3vw;right:3vw;bottom:1vh;font-family:Courier New,monospace;font-size:1.8vh;color:#A3A19B}
+.foot .r{float:right}
 </style>
 </head>
 <body>
 <div class="wrap">
   <div class="mast">
-    <h1 class="mark">ROOF<span class="o">CON</span> 8</h1>
+    <h1 class="mark">ROOF<span>CON</span> 8</h1>
     <div class="sub">Sales board &middot; Nov 10&ndash;12 &middot; Oklahoma City</div>
   </div>
-  <div class="grid" id="grid"></div>
-  <div class="foot"><span id="upd">Loading&hellip;</span><span>Ticket revenue excludes booths</span></div>
+  <div class="grid" id="grid"><div class="cell c3"><div class="card"><div class="k">Loading&hellip;</div></div></div></div>
+  <div class="foot"><span class="r">Ticket revenue excludes booths</span><span id="upd"></span></div>
 </div>
 <script>
-const GOAL=150000;
-const START="2026-10-13", EVENT="2026-11-10";
-const STEPS=[["2026-10-13",125],["2026-10-16",150],["2026-10-23",175],["2026-10-30",197]];
-const $=id=>document.getElementById(id);
-const money=n=>"$"+Math.round(n).toLocaleString("en-US");
-function ymdET(d){return new Intl.DateTimeFormat("en-CA",{timeZone:"America/New_York"}).format(d)}
-function dayNum(s){const[y,m,d]=s.split("-").map(Number);return Date.UTC(y,m-1,d)/864e5}
-function gaPrice(t){let p=STEPS[0][1];for(const[d,v]of STEPS){if(t>=d)p=v}return p}
-function nextStep(t){return STEPS.find(([d])=>d>t)||null}
-function fmtDay(s){const[y,m,d]=s.split("-").map(Number);return new Date(Date.UTC(y,m-1,d)).toLocaleDateString("en-US",{weekday:"short",month:"short",day:"numeric",timeZone:"UTC"})}
-function render(data){
-  const t=ymdET(new Date());
-  const days=data.days||[];
-  const sum=k=>days.reduce((a,x)=>a+(+x[k]||0),0);
-  const rev=sum("rev"),booth=sum("booth"),booths=sum("booths"),ga=sum("ga"),vip=sum("vip"),pkg=sum("pkg");
-  const left=Math.max(0,dayNum(EVENT)-dayNum(t));
-  const elapsed=Math.max(0,Math.min(28,dayNum(t)-dayNum(START)+1));
-  const pace=GOAL/28*elapsed;
-  const diff=rev-pace;
-  const need=Math.max(0,GOAL-rev);
-  const perDay=left>0?need/left:need;
-  const today=days.find(x=>x.date===t)||{rev:0,ga:0,vip:0,pkg:0};
-  const ns=nextStep(t);
-  const pct=Math.min(100,rev/GOAL*100), pp=Math.min(100,pace/GOAL*100);
-  $("grid").innerHTML=`
-    <div class="card wide"><div class="k">Ticket revenue &middot; minimum goal ${money(GOAL)}</div>
-      <div class="v">${money(rev)} <span style="font-size:.45em" class="${diff>=0?'ok':'warn'}">${diff>=0?'&#9650; ':'&#9660; '}${money(Math.abs(diff))} ${diff>=0?'ahead of':'behind'} pace</span></div>
-      <div class="bar"><i style="width:${pct}%"></i><b style="left:${pp}%"></b></div>
-      <div class="n">${pct.toFixed(1)}% of goal &middot; need ${money(need)} more &middot; ${money(perDay)}/day to finish</div></div>
-    <div class="card"><div class="k">Doors open in</div><div class="v">${left} days</div><div class="n">Tue Nov 10 &middot; OKC Convention Center</div></div>
-    <div class="card"><div class="k">GA price now</div><div class="v hi">$${gaPrice(t)}</div><div class="n">${ns?`$${ns[1]} on ${fmtDay(ns[0])}`:"Final price"}</div></div>
-    <div class="card"><div class="k">Today so far</div><div class="v sm">${money(today.rev)}</div><div class="n">${+today.ga||0} GA &middot; ${+today.vip||0} VIP${+today.pkg?` &middot; ${+today.pkg} pkg`:""}</div></div>
-    <div class="card"><div class="k">Tickets sold (since Oct 13)</div><div class="v sm">${ga+vip+pkg*0}</div><div class="n">${ga} GA &middot; ${vip} VIP${pkg?` &middot; ${pkg} team pkg`:""}</div></div>
-    <div class="card"><div class="k">Booths sold (since Oct 13)</div><div class="v sm">${money(booth)}</div><div class="n">${booths} booth${booths===1?"":"s"}</div></div>`;
-  const u=data.updated?new Date(data.updated):null;
-  $("upd").textContent=u?"Updated "+u.toLocaleString("en-US",{timeZone:"America/New_York",weekday:"short",hour:"numeric",minute:"2-digit"})+" ET":"";
+(function(){
+var GOAL=150000, START="2026-10-13", EVENT="2026-11-10";
+var STEPS=[["2026-10-13",125],["2026-10-16",150],["2026-10-23",175],["2026-10-30",197]];
+function $(id){return document.getElementById(id)}
+function money(n){n=Math.round(n);var s=String(Math.abs(n)).replace(/\B(?=(\d{3})+(?!\d))/g,",");return (n<0?"-":"")+"$"+s}
+function pad(n){return n<10?"0"+n:""+n}
+// Today's date in Eastern time, computed without Intl so old browsers work.
+function todayET(){
+  var now=new Date(), u=now.getTime()+now.getTimezoneOffset()*60000;
+  var y=now.getUTCFullYear();
+  function nthSun(year,month,n){var d=new Date(Date.UTC(year,month,1));var off=(7-d.getUTCDay())%7;return 1+off+7*(n-1)}
+  var dstStart=Date.UTC(y,2,nthSun(y,2,2),7), dstEnd=Date.UTC(y,10,nthSun(y,10,1),6);
+  var offset=(now.getTime()>=dstStart&&now.getTime()<dstEnd)?-4:-5;
+  var et=new Date(now.getTime()+offset*3600000);
+  return et.getUTCFullYear()+"-"+pad(et.getUTCMonth()+1)+"-"+pad(et.getUTCDate());
 }
-async function load(){
-  try{
-    const r=await fetch("data.json?"+Date.now(),{cache:"no-store"});
-    if(!r.ok)throw 0;
-    render(await r.json());
-  }catch(e){$("upd").textContent="Waiting for data…"}
+function dayNum(s){var p=s.split("-");return Date.UTC(+p[0],+p[1]-1,+p[2])/864e5}
+function gaPrice(t){var p=STEPS[0][1];for(var i=0;i<STEPS.length;i++){if(t>=STEPS[i][0])p=STEPS[i][1]}return p}
+function nextStep(t){for(var i=0;i<STEPS.length;i++){if(STEPS[i][0]>t)return STEPS[i]}return null}
+var MO=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],WD=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+function fmtDay(s){var p=s.split("-"),d=new Date(Date.UTC(+p[0],+p[1]-1,+p[2]));return WD[d.getUTCDay()]+", "+MO[d.getUTCMonth()]+" "+(+p[2])}
+function render(data){
+  var t=todayET(), days=data.days||[];
+  function sum(k){var a=0;for(var i=0;i<days.length;i++)a+=(+days[i][k]||0);return a}
+  var rev=sum("rev"),booth=sum("booth"),booths=sum("booths"),ga=sum("ga"),vip=sum("vip"),pkg=sum("pkg");
+  var left=Math.max(0,dayNum(EVENT)-dayNum(t));
+  var elapsed=Math.max(0,Math.min(28,dayNum(t)-dayNum(START)+1));
+  var pace=GOAL/28*elapsed, diff=rev-pace, need=Math.max(0,GOAL-rev);
+  var perDay=left>0?need/left:need;
+  var today={rev:0,ga:0,vip:0,pkg:0};
+  for(var i=0;i<days.length;i++){if(days[i].date===t)today=days[i]}
+  var ns=nextStep(t);
+  var pct=Math.min(100,rev/GOAL*100), pp=Math.min(100,pace/GOAL*100);
+  var h="";
+  h+='<div class="cell c3"><div class="card"><div class="k">Ticket revenue &middot; minimum goal '+money(GOAL)+'</div>'
+   +'<div class="v">'+money(rev)+' <small class="'+(diff>=0?"ok":"warn")+'">'+(diff>=0?"&#9650; ":"&#9660; ")+money(Math.abs(diff))+(diff>=0?" ahead of":" behind")+' pace</small></div>'
+   +'<div class="bar"><i style="width:'+pct+'%"></i><b style="left:'+pp+'%"></b></div>'
+   +'<div class="n">'+pct.toFixed(1)+'% of goal &middot; need '+money(need)+' more &middot; '+money(perDay)+'/day to finish</div></div></div>';
+  h+='<div class="cell c1"><div class="card"><div class="k">Doors open in</div><div class="v sm">'+left+' days</div><div class="n">Tue Nov 10 &middot; OKC</div></div></div>';
+  h+='<div class="cell q"><div class="card"><div class="k">GA price now</div><div class="v hi">$'+gaPrice(t)+'</div><div class="n">'+(ns?("$"+ns[1]+" on "+fmtDay(ns[0])):"Final price")+'</div></div></div>';
+  h+='<div class="cell q"><div class="card"><div class="k">Today so far</div><div class="v sm">'+money(+today.rev||0)+'</div><div class="n">'+(+today.ga||0)+' GA &middot; '+(+today.vip||0)+' VIP'+(+today.pkg?' &middot; '+(+today.pkg)+' pkg':'')+'</div></div></div>';
+  h+='<div class="cell q"><div class="card"><div class="k">Tickets sold</div><div class="v sm">'+(ga+vip)+'</div><div class="n">'+ga+' GA &middot; '+vip+' VIP'+(pkg?' &middot; '+pkg+' team pkg':'')+'</div></div></div>';
+  h+='<div class="cell q"><div class="card"><div class="k">Booths sold</div><div class="v sm">'+money(booth)+'</div><div class="n">'+booths+' booth'+(booths===1?'':'s')+'</div></div></div>';
+  $("grid").innerHTML=h;
+  if(data.updated){
+    var u=new Date(data.updated), now=new Date();
+    var m=Math.max(0,Math.round((now-u)/60000));
+    $("upd").textContent="Data updated "+(m<60?m+" min ago":Math.round(m/60)+" hr ago")+" · since Oct 13";
+  }
+}
+function load(){
+  var x=new XMLHttpRequest();
+  x.open("GET","data.json?t="+(new Date().getTime()),true);
+  x.onreadystatechange=function(){
+    if(x.readyState!==4)return;
+    if(x.status>=200&&x.status<300){
+      try{render(JSON.parse(x.responseText))}catch(e){$("upd").textContent="Data error: "+e.message}
+    }else{$("upd").textContent="Waiting for data (status "+x.status+")"}
+  };
+  x.send();
 }
 load();setInterval(load,60000);
+})();
 </script>
 </body>
 </html>
