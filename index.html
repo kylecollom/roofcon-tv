@@ -70,8 +70,10 @@ function render(data){
   function sum(k){var a=0;for(var i=0;i<days.length;i++)a+=(+days[i][k]||0);return a}
   var rev=sum("rev"),booth=sum("booth"),booths=sum("booths"),ga=sum("ga"),vip=sum("vip"),pkg=sum("pkg");
   var left=Math.max(0,dayNum(EVENT)-dayNum(t));
-  var elapsed=Math.max(0,Math.min(28,dayNum(t)-dayNum(START)+1));
-  var pace=GOAL/28*elapsed, diff=rev-pace, need=Math.max(0,GOAL-rev);
+  // Pace counts completed days only: revenue through yesterday vs. yesterday's pace target.
+  var elapsed=Math.max(0,Math.min(28,dayNum(t)-dayNum(START)));
+  var revPrev=0;for(var j=0;j<days.length;j++){if(days[j].date<t)revPrev+=(+days[j].rev||0)}
+  var pace=GOAL/28*elapsed, diff=revPrev-pace, need=Math.max(0,GOAL-rev);
   var perDay=left>0?need/left:need;
   var today={rev:0,ga:0,vip:0,pkg:0};
   for(var i=0;i<days.length;i++){if(days[i].date===t)today=days[i]}
@@ -79,7 +81,7 @@ function render(data){
   var pct=Math.min(100,rev/GOAL*100), pp=Math.min(100,pace/GOAL*100);
   var h="";
   h+='<div class="cell c3"><div class="card"><div class="k">Ticket revenue &middot; minimum goal '+money(GOAL)+'</div>'
-   +'<div class="v">'+money(rev)+' <small class="'+(diff>=0?"ok":"warn")+'">'+(diff>=0?"&#9650; ":"&#9660; ")+money(Math.abs(diff))+(diff>=0?" ahead of":" behind")+' pace</small></div>'
+   +'<div class="v">'+money(rev)+' <small class="'+(diff>=0?"ok":"warn")+'">'+(diff>=0?"&#9650; ":"&#9660; ")+money(Math.abs(diff))+(diff>=0?" ahead of":" behind")+' pace thru yesterday</small></div>'
    +'<div class="bar"><i style="width:'+pct+'%"></i><b style="left:'+pp+'%"></b></div>'
    +'<div class="n">'+pct.toFixed(1)+'% of goal &middot; need '+money(need)+' more &middot; '+money(perDay)+'/day to finish</div></div></div>';
   h+='<div class="cell c1"><div class="card"><div class="k">Doors open in</div><div class="v sm">'+left+' days</div><div class="n">Tue Nov 10 &middot; OKC</div></div></div>';
