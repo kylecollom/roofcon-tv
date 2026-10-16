@@ -20,7 +20,7 @@ body{background:#121211;color:#EDECE8;font-family:"Arial Black",Arial,Helvetica,
 .left{width:62%}
 .right{width:38%}
 .cell{display:inline-block;vertical-align:top;padding:.6vh .6vw;font-size:16px}
-.w100{width:100%;height:38vh}.w33{width:33.333%;height:22vh}.w50{width:50%;height:22vh}.full{width:100%;height:82vh}
+.w100{width:100%;height:30vh}.w33{width:33.333%;height:20vh}.tbl{width:100%;height:32vh}.full{width:100%;height:82vh}
 .card{height:100%;background:#1B1B1A;border:1px solid #34332F;padding:1.6vh 1.2vw;overflow:hidden;display:-webkit-box;display:-webkit-flex;display:flex;-webkit-box-orient:vertical;-webkit-flex-direction:column;flex-direction:column;-webkit-box-pack:center;-webkit-justify-content:center;justify-content:center}
 .k{font-family:Arial,Helvetica,sans-serif;font-size:1.9vh;text-transform:uppercase;letter-spacing:2px;color:#A3A19B}
 .v{font-size:9vh;line-height:1.1;font-weight:900;margin-top:.5vh;white-space:nowrap}
@@ -31,6 +31,13 @@ body{background:#121211;color:#EDECE8;font-family:"Arial Black",Arial,Helvetica,
 .bar i{position:absolute;top:0;bottom:0;left:0;background:#EDECE8}
 .bar b{position:absolute;top:-.6vh;bottom:-.6vh;width:3px;background:#F2B705}
 .hi{color:#F2B705}.ok{color:#5FBF86}.warn{color:#E58A50}
+/* breakdown table */
+.bt{width:100%;border-collapse:collapse;font-family:Arial,Helvetica,sans-serif;margin-top:.4vh}
+.bt th{font-size:1.8vh;text-transform:uppercase;letter-spacing:2px;color:#A3A19B;text-align:right;font-weight:bold;padding:.3vh .4vw .8vh}
+.bt th:first-child,.bt td:first-child{text-align:left}
+.bt td{font-size:3.4vh;font-weight:bold;text-align:right;padding:.9vh .4vw;border-top:1px solid #34332F;white-space:nowrap}
+.bt td:first-child{font-size:2vh;text-transform:uppercase;letter-spacing:2px;color:#A3A19B}
+.bt td small{display:block;font-size:1.8vh;font-weight:normal;color:#A3A19B;margin-top:.2vh}
 /* tasks */
 .tasks{display:block;padding:1.6vh 1.2vw}
 .th{font-family:Arial,Helvetica,sans-serif;font-size:1.9vh;text-transform:uppercase;letter-spacing:2px;color:#A3A19B;margin-bottom:1vh}
@@ -46,7 +53,7 @@ body{background:#121211;color:#EDECE8;font-family:"Arial Black",Arial,Helvetica,
 #tmore{font-family:Arial,Helvetica,sans-serif;color:#A3A19B;font-size:2vh;margin-top:.6vh}
 .foot{position:absolute;left:3vw;right:3vw;bottom:.8vh;font-family:Courier New,monospace;font-size:1.7vh;color:#A3A19B}
 .foot .r{float:right}
-@media (max-width:800px){body{overflow:auto}.wrap{height:auto;padding-bottom:6vh}.cols{height:auto;white-space:normal}.col{width:100%!important;height:auto}.cell{height:auto!important}.w100{width:100%}.w33{width:50%}.w50{width:50%}.full{width:100%}.v{font-size:36px}.v.sm{font-size:30px}.foot{position:static;margin-top:16px}}
+@media (max-width:800px){body{overflow:auto}.wrap{height:auto;padding-bottom:6vh}.cols{height:auto;white-space:normal}.col{width:100%!important;height:auto}.cell{height:auto!important}.w100,.tbl{width:100%}.w33{width:50%}.full{width:100%}.v{font-size:36px}.v.sm{font-size:30px}.foot{position:static;margin-top:16px}}
 </style>
 </head>
 <body>
@@ -104,8 +111,19 @@ function render(data){
   h+='<div class="cell w33"><div class="card"><div class="k">Doors open in</div><div class="v sm">'+left+' days</div><div class="n">Tue Nov 10 &middot; OKC</div></div></div>';
   h+='<div class="cell w33"><div class="card"><div class="k">GA price now</div><div class="v sm hi">$'+gaPrice(t)+'</div><div class="n">'+(ns?("$"+ns[1]+" on "+fmtDay(ns[0])):"Final price")+'</div></div></div>';
   h+='<div class="cell w33"><div class="card"><div class="k">Today so far</div><div class="v sm">'+money(+today.rev||0)+'</div><div class="n">'+(+today.ga||0)+' GA &middot; '+(+today.vip||0)+' VIP'+(+today.pkg?' &middot; '+(+today.pkg)+' pkg':'')+'</div></div></div>';
-  h+='<div class="cell w50"><div class="card"><div class="k">Tickets sold</div><div class="v sm">'+(ga+vip)+'</div><div class="n">'+ga+' GA &middot; '+vip+' VIP'+(pkg?' &middot; '+pkg+' team pkg':'')+'</div></div></div>';
-  h+='<div class="cell w50"><div class="card"><div class="k">Booths sold</div><div class="v sm">'+money(booth)+'</div><div class="n">'+booths+' booth'+(booths===1?'':'s')+'</div></div></div>';
+  // Week to date (Mon-Sun, Eastern) and month to date.
+  var tp=t.split("-"),dow=new Date(Date.UTC(+tp[0],+tp[1]-1,+tp[2])).getUTCDay();
+  var wkStartN=dayNum(t)-((dow+6)%7), monStart=tp[0]+"-"+tp[1]+"-01";
+  function agg(from){var r={rev:0,ga:0,vip:0,booth:0,booths:0};
+    for(var q=0;q<days.length;q++){var dd=days[q];if(dd.date>=from&&dd.date<=t){r.rev+=(+dd.rev||0);r.ga+=(+dd.ga||0);r.vip+=(+dd.vip||0);r.booth+=(+dd.booth||0);r.booths+=(+dd.booths||0)}}return r}
+  function dstr(n){var d=new Date(n*864e5);return d.getUTCFullYear()+"-"+pad(d.getUTCMonth()+1)+"-"+pad(d.getUTCDate())}
+  var W=agg(dstr(wkStartN)),M=agg(monStart),T=agg(START);
+  function tk(r){return '<td>'+(r.ga+r.vip)+'<small>'+r.ga+' GA &middot; '+r.vip+' VIP</small></td>'}
+  function bo(r){return '<td>'+money(r.booth)+'<small>'+r.booths+' booth'+(r.booths===1?'':'s')+'</small></td>'}
+  h+='<div class="cell tbl"><div class="card"><table class="bt"><tr><th></th><th>Week to date</th><th>Month to date</th><th>Since Oct 13</th></tr>'
+   +'<tr><td>Ticket revenue</td><td>'+money(W.rev)+'</td><td>'+money(M.rev)+'</td><td>'+money(T.rev)+'</td></tr>'
+   +'<tr><td>Tickets sold</td>'+tk(W)+tk(M)+tk(T)+'</tr>'
+   +'<tr><td>Booths sold</td>'+bo(W)+bo(M)+bo(T)+'</tr></table></div></div>';
   $("left").innerHTML=h;
   renderTasks(data.tasks,t);
   fit();
