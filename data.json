@@ -1,9 +1,144 @@
 {
-  "updated": "2026-10-16T14:50:52Z",
-  "days": [
-    {"date": "2026-10-13", "ga": 3, "vip": 2, "pkg": 0, "rev": 1910.16, "booth": 7210, "booths": 1},
-    {"date": "2026-10-14", "ga": 3, "vip": 2, "pkg": 0, "rev": 2520.41, "booth": 12800, "booths": 2},
-    {"date": "2026-10-15", "ga": 7, "vip": 3, "pkg": 0, "rev": 4347.9, "booth": 0, "booths": 0},
-    {"date": "2026-10-16", "ga": 0, "vip": 0, "pkg": 0, "rev": 0, "booth": 25000, "booths": 1}
+ "updated": "2026-10-16T14:50:52Z",
+ "days": [
+  {
+   "date": "2026-10-13",
+   "ga": 3,
+   "vip": 2,
+   "pkg": 0,
+   "rev": 1910.16,
+   "booth": 7210,
+   "booths": 1
+  },
+  {
+   "date": "2026-10-14",
+   "ga": 3,
+   "vip": 2,
+   "pkg": 0,
+   "rev": 2520.41,
+   "booth": 12800,
+   "booths": 2
+  },
+  {
+   "date": "2026-10-15",
+   "ga": 7,
+   "vip": 3,
+   "pkg": 0,
+   "rev": 4347.9,
+   "booth": 0,
+   "booths": 0
+  },
+  {
+   "date": "2026-10-16",
+   "ga": 0,
+   "vip": 0,
+   "pkg": 0,
+   "rev": 0,
+   "booth": 25000,
+   "booths": 1
+  }
+ ],
+ "tasks": {
+  "date": "2026-10-16",
+  "items": [
+   {
+    "id": "r1016-h",
+    "owner": "All",
+    "ch": "Ops",
+    "title": "9:45 huddle \u2014 log yesterday in Scorecard first",
+    "done": false
+   },
+   {
+    "id": "r1016-m",
+    "owner": "Kyle",
+    "ch": "Meta",
+    "title": "Meta check: spend pacing, cost per purchase, anything broken",
+    "done": false
+   },
+   {
+    "id": "r1016-s",
+    "owner": "Kyle",
+    "ch": "Partners",
+    "title": "Sponsor post goes live \u2014 message that sponsor the link, ask for a share or IG collab",
+    "done": false
+   },
+   {
+    "id": "r1016-o",
+    "owner": "Kyle",
+    "ch": "Organic",
+    "title": "Post 1\u20132 reels + daily stories (countdown + offer)",
+    "done": false
+   },
+   {
+    "id": "r1016-l",
+    "owner": "Kyle",
+    "ch": "Email",
+    "title": "Pre-written leads email sends today \u2014 confirm it went out",
+    "done": false
+   },
+   {
+    "id": "1016-1",
+    "owner": "Kyle",
+    "ch": "Meta",
+    "title": "Swap all prices to $150",
+    "done": false
+   },
+   {
+    "id": "1016-2",
+    "owner": "Kyle",
+    "ch": "Meta",
+    "title": "Friday budget reallocation",
+    "done": false
+   },
+   {
+    "id": "1016-3",
+    "owner": "Kyle",
+    "ch": "Partners",
+    "title": "Send speaker + exhibitor share kits",
+    "done": false
+   },
+   {
+    "id": "1016-4",
+    "owner": "Lee",
+    "ch": "Partners",
+    "title": "Speaker + exhibitor graphics",
+    "done": false
+   },
+   {
+    "id": "1016-5",
+    "owner": "William",
+    "ch": "Meta",
+    "title": "Deliver FB exhibitor ad #1: booth sales",
+    "done": false
+   },
+   {
+    "id": "1016-6",
+    "owner": "Kyle",
+    "ch": "Ops",
+    "title": "Friday one-pager to leadership",
+    "done": false
+   },
+   {
+    "id": "1016-7",
+    "owner": "Kyle",
+    "ch": "Organic",
+    "title": "Schedule Saturday speaker carousel",
+    "done": false
+   },
+   {
+    "id": "1016-8",
+    "owner": "Kyle",
+    "ch": "Email",
+    "title": "Send W4 webinar replay + book a booth (registrants, two versions)",
+    "done": false
+   },
+   {
+    "id": "1016-9",
+    "owner": "Sales",
+    "ch": "Sales",
+    "title": "Diego's reps: call every webinar registrant within 1 business day",
+    "done": false
+   }
   ]
+ }
 }
