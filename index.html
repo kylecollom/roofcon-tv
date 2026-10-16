@@ -117,13 +117,13 @@ function render(data){
   function agg(from){var r={rev:0,ga:0,vip:0,booth:0,booths:0};
     for(var q=0;q<days.length;q++){var dd=days[q];if(dd.date>=from&&dd.date<=t){r.rev+=(+dd.rev||0);r.ga+=(+dd.ga||0);r.vip+=(+dd.vip||0);r.booth+=(+dd.booth||0);r.booths+=(+dd.booths||0)}}return r}
   function dstr(n){var d=new Date(n*864e5);return d.getUTCFullYear()+"-"+pad(d.getUTCMonth()+1)+"-"+pad(d.getUTCDate())}
-  var W=agg(dstr(wkStartN)),M=agg(monStart),T=agg(START);
+  var W=agg(dstr(wkStartN)),T=agg(START);
   function tk(r){return '<td>'+(r.ga+r.vip)+'<small>'+r.ga+' GA &middot; '+r.vip+' VIP</small></td>'}
   function bo(r){return '<td>'+money(r.booth)+'<small>'+r.booths+' booth'+(r.booths===1?'':'s')+'</small></td>'}
-  h+='<div class="cell tbl"><div class="card"><table class="bt"><tr><th></th><th>Week to date</th><th>Month to date</th><th>Since Oct 13</th></tr>'
-   +'<tr><td>Ticket revenue</td><td>'+money(W.rev)+'</td><td>'+money(M.rev)+'</td><td>'+money(T.rev)+'</td></tr>'
-   +'<tr><td>Tickets sold</td>'+tk(W)+tk(M)+tk(T)+'</tr>'
-   +'<tr><td>Booths sold</td>'+bo(W)+bo(M)+bo(T)+'</tr></table></div></div>';
+  h+='<div class="cell tbl"><div class="card"><table class="bt"><tr><th></th><th>Week to date</th><th>Since Oct 13</th></tr>'
+   +'<tr><td>Ticket revenue</td><td>'+money(W.rev)+'</td><td>'+money(T.rev)+'</td></tr>'
+   +'<tr><td>Tickets sold</td>'+tk(W)+tk(T)+'</tr>'
+   +'<tr><td>Booths sold</td>'+bo(W)+bo(T)+'</tr></table></div></div>';
   $("left").innerHTML=h;
   renderTasks(data.tasks,t);
   fit();
