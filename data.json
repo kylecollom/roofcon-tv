@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-16T15:19:46Z",
+ "updated": "2026-10-16T15:39:19Z",
  "days": [
   {
    "date": "2026-10-13",
@@ -46,7 +46,7 @@
     "owner": "All",
     "ch": "Ops",
     "title": "9:45 huddle \u2014 log yesterday in Scorecard first",
-    "done": false
+    "done": true
    },
    {
     "id": "r1016-m",
@@ -84,20 +84,6 @@
     "done": false
    },
    {
-    "id": "1016-2",
-    "owner": "Kyle",
-    "ch": "Meta",
-    "title": "Friday budget reallocation",
-    "done": false
-   },
-   {
-    "id": "1016-3",
-    "owner": "Kyle",
-    "ch": "Partners",
-    "title": "Send speaker + exhibitor share kits",
-    "done": false
-   },
-   {
     "id": "1016-4",
     "owner": "Lee",
     "ch": "Partners",
@@ -109,27 +95,6 @@
     "owner": "William",
     "ch": "Meta",
     "title": "Deliver FB exhibitor ad #1: booth sales",
-    "done": false
-   },
-   {
-    "id": "1016-6",
-    "owner": "Kyle",
-    "ch": "Ops",
-    "title": "Friday one-pager to leadership",
-    "done": false
-   },
-   {
-    "id": "1016-7",
-    "owner": "Kyle",
-    "ch": "Organic",
-    "title": "Schedule Saturday speaker carousel",
-    "done": false
-   },
-   {
-    "id": "1016-8",
-    "owner": "Kyle",
-    "ch": "Email",
-    "title": "Send W4 webinar replay + book a booth (registrants, two versions)",
     "done": false
    },
    {
