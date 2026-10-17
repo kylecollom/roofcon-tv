@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-16T15:39:19Z",
+ "updated": "2026-10-17T07:51:16Z",
  "days": [
   {
    "date": "2026-10-13",
@@ -30,78 +30,38 @@
   },
   {
    "date": "2026-10-16",
+   "ga": 3,
+   "vip": 1,
+   "pkg": 0,
+   "rev": 1532.23,
+   "booth": 30150,
+   "booths": 2
+  },
+  {
+   "date": "2026-10-17",
    "ga": 0,
    "vip": 0,
    "pkg": 0,
    "rev": 0,
-   "booth": 25000,
-   "booths": 1
+   "booth": 0,
+   "booths": 0
   }
  ],
  "tasks": {
-  "date": "2026-10-16",
+  "date": "2026-10-17",
   "items": [
    {
-    "id": "r1016-h",
-    "owner": "All",
-    "ch": "Ops",
-    "title": "9:45 huddle \u2014 log yesterday in Scorecard first",
-    "done": true
-   },
-   {
-    "id": "r1016-m",
-    "owner": "Kyle",
-    "ch": "Meta",
-    "title": "Meta check: spend pacing, cost per purchase, anything broken",
-    "done": false
-   },
-   {
-    "id": "r1016-s",
-    "owner": "Kyle",
-    "ch": "Partners",
-    "title": "Sponsor post goes live \u2014 message that sponsor the link, ask for a share or IG collab",
-    "done": false
-   },
-   {
-    "id": "r1016-o",
+    "id": "r1017-a",
     "owner": "Kyle",
     "ch": "Organic",
-    "title": "Post 1\u20132 reels + daily stories (countdown + offer)",
+    "title": "Confirm scheduled reel + stories posted (FB, IG, TikTok, YT Shorts)",
     "done": false
    },
    {
-    "id": "r1016-l",
+    "id": "1017-1",
     "owner": "Kyle",
-    "ch": "Email",
-    "title": "Pre-written leads email sends today \u2014 confirm it went out",
-    "done": false
-   },
-   {
-    "id": "1016-1",
-    "owner": "Kyle",
-    "ch": "Meta",
-    "title": "Swap all prices to $150",
-    "done": false
-   },
-   {
-    "id": "1016-4",
-    "owner": "Lee",
-    "ch": "Partners",
-    "title": "Speaker + exhibitor graphics",
-    "done": false
-   },
-   {
-    "id": "1016-5",
-    "owner": "William",
-    "ch": "Meta",
-    "title": "Deliver FB exhibitor ad #1: booth sales",
-    "done": false
-   },
-   {
-    "id": "1016-9",
-    "owner": "Sales",
-    "ch": "Sales",
-    "title": "Diego's reps: call every webinar registrant within 1 business day",
+    "ch": "Organic",
+    "title": "Scheduled: speaker carousel (FB + IG)",
     "done": false
    }
   ]
