@@ -2,7 +2,7 @@
    Gives the tracker the same small db API it used inside claude.ai (doc/collection/set/update/delete/add/onSnapshot),
    backed by the Realtime Database REST API. Team data lives under /t/<team key>; only the TV board (/pub/board) is public. */
 (function(){
-  var RC=window.RC={ver:"3"};
+  var RC=window.RC={ver:"4"};
   var qs=(location.search.match(/[?&]db=([^&]+)/)||[])[1];
   var BASE=(qs?decodeURIComponent(qs):"https://roofcon-tracker-default-rtdb.firebaseio.com").replace(/\/$/,"");
   RC.base=BASE;
@@ -100,6 +100,13 @@
         ["(part of the 5\u201310)","(part of the 21\u201328)"],["2\u20133 reels Kyle can schedule for Sat/Sun.","6\u20138 reels Kyle can schedule for Sat/Sun (3\u20134 a day)."],["2\u20133 reels for Sat/Sun.","6\u20138 reels for Sat/Sun (3\u20134 a day)."],
         ["1 reel per day","3\u20134 reels per day"]];
       plan.forEach(function(d){d.tasks.forEach(function(t){["title","detail","copy"].forEach(function(k){RP.forEach(function(r){if(t[k]&&t[k].indexOf(r[0])>-1)t[k]=t[k].split(r[0]).join(r[1])})})})});
+      // One-time: save the reel update (and the routine item) into the database itself.
+      http("GET","/t/"+KEY+"/meta/reels3").then(function(flag){
+        if(flag)return;
+        return http("PUT","/t/"+KEY+"/plan",{sign:p.sign,plan:plan})
+          .then(function(){return http("PUT","/t/"+KEY+"/db/edits/rall-o",{title:"Post 3\u20134 reels + daily stories (countdown + offer)",detail:"Reels from William's queue (about 21\u201328 a week). Cross-post to TikTok and YouTube Shorts. Keep the feed for the sponsor post; Thursday 'last day' posts go up in the afternoon.",at:new Date().toISOString()})})
+          .then(function(){return http("PUT","/t/"+KEY+"/meta/reels3",true)});
+      }).catch(function(){});
       window.SIGN=p.sign;window.PLAN=plan;
       window.claude={use:function(n){return Promise.resolve(n==="db"?db:null)}};
       closeGate();done();
