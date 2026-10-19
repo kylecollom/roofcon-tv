@@ -221,7 +221,7 @@ td.neg{color:var(--warn)} td.pos{color:var(--ok)}
     <div class="stat"><div class="k">Doors open in</div><div class="v num" id="s-days">—</div><div class="n">Tue Nov 10 · OKC Convention Center</div></div>
     <div class="stat"><div class="k">GA price now</div><div class="v num" id="s-price">—</div><div class="n" id="s-next">—</div></div>
     <div class="stat"><div class="k">New revenue logged</div><div class="v num" id="s-rev">$0</div><div class="n" id="s-revn">of $150,000 minimum</div><div class="bar" title="Black: logged. Amber: where pace says you should be."><i id="s-revbar" style="width:0"></i><b id="s-pace" style="left:0"></b></div></div>
-    <div class="stat"><div class="k">Plan tasks done</div><div class="v num" id="s-done">0 / 0</div><div class="n" id="s-doneN">Routine daily items not counted</div></div>
+    <div class="stat"><div class="k">Plan tasks done</div><div class="v num" id="s-done">0 / 0</div><div class="n" id="s-doneN">Every task counts, daily ones included</div></div>
   </section>
 
   <nav class="tabs" role="tablist">
@@ -240,7 +240,7 @@ td.neg{color:var(--warn)} td.pos{color:var(--ok)}
         <button data-scope="all" aria-pressed="false">Whole plan</button>
       </div>
       <label class="chk"><input type="checkbox" id="hideDone"> Hide done</label>
-      <label class="chk"><input type="checkbox" id="showRoutine" checked> Show daily routine</label>
+      <label class="chk" style="display:none"><input type="checkbox" id="showRoutine" checked> Show daily routine</label>
       <label class="chk pick" for="chFilter">Channel <select id="chFilter"></select></label>
       <label class="chk pick" for="sortBy">Sort <select id="sortBy"><option value="plan">Plan order</option><option value="ch">By channel</option><option value="owner">By owner</option></select></label>
     </div>
@@ -460,7 +460,7 @@ td.neg{color:var(--warn)} td.pos{color:var(--ok)}
   </section>
 </div>
 
-<script src="fb.js?v=4"></script>
+<script src="fb.js?v=5"></script>
 <script>
 RC.boot(function(){var s=document.createElement("script");s.src="tracker-app.js?v="+RC.ver;document.body.appendChild(s)});
 </script>
