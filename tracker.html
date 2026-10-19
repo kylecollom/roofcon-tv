@@ -1,0 +1,468 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RoofCON 8 Final 28</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@112,600;112,800;125,900&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: job-site board — black/grey brand header, day strip like a shingle course, task rows below; high-vis amber marks price jumps only. */
+:root{
+  --bg:#EEEDEA; --panel:#FAFAF8; --ink:#141414; --mute:#5E5D59; --line:#D3D1CC; --soft:#E3E1DC;
+  --hi:#F2B705; --hi-ink:#141414; --ok:#2E7D4F; --warn:#B4541A;
+  --ph-build:#6B6A66; --ph-launch:#141414; --ph-scale:#3D5A80; --ph-urgency:#B4541A; --ph-convert:#7A3E9D; --ph-handoff:#2E7D4F; --ph-event:#141414;
+  --display:"Archivo","Arial Black",system-ui,sans-serif;
+  --body:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#121211; --panel:#1B1B1A; --ink:#EDECE8; --mute:#A3A19B; --line:#34332F; --soft:#262624;
+  --hi:#F2B705; --hi-ink:#141414; --ok:#5FBF86; --warn:#E58A50;
+  --ph-build:#9B9A95; --ph-launch:#EDECE8; --ph-scale:#86A8D6; --ph-urgency:#E58A50; --ph-convert:#C08AE0; --ph-handoff:#5FBF86; --ph-event:#EDECE8;
+  color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#121211; --panel:#1B1B1A; --ink:#EDECE8; --mute:#A3A19B; --line:#34332F; --soft:#262624;
+  --hi:#F2B705; --hi-ink:#141414; --ok:#5FBF86; --warn:#E58A50;
+  --ph-build:#9B9A95; --ph-launch:#EDECE8; --ph-scale:#86A8D6; --ph-urgency:#E58A50; --ph-convert:#C08AE0; --ph-handoff:#5FBF86; --ph-event:#EDECE8;
+  color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:15px/1.5 var(--body);margin:0}
+.wrap{max-width:1080px;margin:0 auto;padding-inline:16px;padding-block:20px 64px}
+button,input,select{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--hi);outline-offset:2px}
+.num{font-family:var(--mono);font-variant-numeric:tabular-nums}
+
+/* header */
+.mast{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px 24px;padding-bottom:14px;border-bottom:3px solid var(--ink)}
+.mark{font:900 clamp(30px,6vw,52px)/.9 var(--display);font-stretch:125%;letter-spacing:-.01em;margin:0}
+.mark .o{color:transparent;-webkit-text-stroke:1.6px var(--mute)}
+.mark .caret{display:inline-block;width:.5em;height:.5em;border-left:.13em solid var(--ink);border-top:.13em solid var(--ink);transform:translateY(-.05em) rotate(45deg);margin-left:.12em;vertical-align:top}
+.sub{font:600 13px/1.3 var(--display);font-stretch:112%;text-transform:uppercase;letter-spacing:.08em;color:var(--mute)}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin-top:16px}
+.stat{background:var(--panel);padding:12px 14px;min-width:0}
+.stat .k{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--mute)}
+.stat .v{font:800 24px/1.15 var(--display);font-stretch:112%;margin-top:2px}
+.stat .n{font-size:12.5px;color:var(--mute)}
+.bar{height:6px;background:var(--soft);margin-top:8px;position:relative}
+.bar i{position:absolute;inset:0 auto 0 0;background:var(--ink)}
+.bar b{position:absolute;top:-3px;bottom:-3px;width:2px;background:var(--hi)}
+@media (max-width:720px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* tabs */
+.tabs{display:flex;gap:4px;margin:20px 0 12px;border-bottom:1px solid var(--line);overflow-x:auto}
+@media (max-width:480px){.tab{padding:8px 9px;font-size:12.5px;white-space:nowrap}}
+.tab{background:none;border:0;padding:8px 14px;font:700 14px var(--display);font-stretch:112%;text-transform:uppercase;letter-spacing:.06em;color:var(--mute);cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-1px}
+.tab[aria-selected="true"]{color:var(--ink);border-color:var(--ink)}
+
+.notice{font-size:13px;padding:8px 12px;border:1px dashed var(--line);color:var(--mute);margin-bottom:12px}
+
+/* day strip */
+.strip{overflow-x:auto;padding-bottom:20px;margin-bottom:0}
+.days{display:flex;gap:4px;min-width:max-content}
+.day{width:58px;flex:none;background:var(--panel);border:1px solid var(--line);padding:6px 4px 7px;text-align:center;cursor:pointer;position:relative}
+.day .w{font-size:10.5px;text-transform:uppercase;letter-spacing:.08em;color:var(--mute)}
+.day .d{font:800 18px/1.1 var(--display)}
+.day .m{font-size:10.5px;color:var(--mute)}
+.day .ph{display:block;height:4px;margin:5px 4px 0;background:var(--c)}
+.day .pg{display:block;font:500 10px var(--mono);margin-top:4px;color:var(--mute)}
+.day.jump{border-top:4px solid var(--hi)}
+.day.we{background:var(--soft)}
+.day[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.day[aria-pressed="true"] .w,.day[aria-pressed="true"] .m,.day[aria-pressed="true"] .pg{color:var(--bg)}
+.day.today::after{content:"TODAY";position:absolute;left:50%;transform:translateX(-50%);bottom:-15px;font:600 9px var(--mono);letter-spacing:.06em;color:var(--ink)}
+.day .done{font:500 10px var(--mono)}
+
+.controls{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;margin:18px 0 14px}
+.seg{display:inline-flex;border:1px solid var(--line);background:var(--panel)}
+.seg button{border:0;background:none;padding:6px 12px;cursor:pointer;font-size:13px;font-weight:600}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.chk{display:inline-flex;gap:6px;align-items:center;font-size:13px;color:var(--mute);cursor:pointer}
+.pick select{border:1px solid var(--line);background:var(--panel);padding:5px 8px;font-size:13px;font-weight:600;color:var(--ink)}
+.grp{font:600 10.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--mute);background:var(--soft);padding:6px 12px;border-bottom:1px solid var(--line);list-style:none}
+
+/* day panel */
+.dayhead{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:baseline;margin:22px 0 4px}
+.dayhead h2{font:800 26px/1.1 var(--display);font-stretch:112%;margin:0;text-wrap:balance}
+.tag{display:inline-block;font:600 11px var(--display);font-stretch:112%;text-transform:uppercase;letter-spacing:.08em;padding:3px 7px;border:1.5px solid var(--c);color:var(--c)}
+.price{font:500 12.5px var(--mono);padding:3px 7px;background:var(--soft)}
+.price.j{background:var(--hi);color:var(--hi-ink)}
+.focus{font-size:15px;color:var(--mute);margin:4px 0 12px;max-width:70ch}
+
+.tasks{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.task{border-bottom:1px solid var(--line);background:var(--panel)}
+.row{display:grid;grid-template-columns:28px minmax(0,1fr) auto;gap:10px;align-items:start;padding:11px 12px}
+.row input[type=checkbox]{width:18px;height:18px;margin:2px 0 0;accent-color:var(--ink);cursor:pointer}
+.ttl{font-weight:600;min-width:0}
+.task.is-done .ttl{text-decoration:line-through;color:var(--mute)}
+.meta{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+.own{font:600 11.5px var(--body);padding:2px 8px;border-radius:999px;background:var(--ink);color:var(--bg)}
+.own.Lee{background:#3D5A80;color:#fff}.own.William{background:#7A3E9D;color:#fff}.own.Sales{background:#2E7D4F;color:#fff}.own.All{background:var(--mute);color:var(--bg)}
+.ch{font:500 11.5px var(--mono);padding:2px 6px;border:1px solid var(--line);color:var(--mute)}
+.routine .ttl{font-weight:500;color:var(--mute)}
+details.more{padding:0 12px 12px 50px}
+details.more summary{cursor:pointer;font-size:13px;color:var(--mute);list-style:none;display:inline-flex;gap:6px;align-items:center}
+details.more summary::-webkit-details-marker{display:none}
+details.more summary::before{content:"+";font:600 14px var(--mono);width:12px}
+details.more[open] summary::before{content:"–"}
+.detail{font-size:14px;margin:8px 0 0;max-width:72ch}
+.copy{position:relative;margin-top:10px;border-left:3px solid var(--ink);background:var(--soft)}
+.copy pre{margin:0;padding:12px 14px;white-space:pre-wrap;word-wrap:break-word;font:13.5px/1.55 var(--body)}
+.copy button{position:absolute;top:6px;right:6px;border:1px solid var(--line);background:var(--panel);font-size:12px;padding:3px 9px;cursor:pointer}
+.copy .lbl{font:600 10.5px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--mute);padding:8px 14px 0}
+.empty{padding:16px;color:var(--mute);background:var(--panel);border:1px solid var(--line)}
+.addbox{margin-top:12px;background:var(--panel);border:1px dashed var(--line);padding:12px}
+.addbox form{display:grid;grid-template-columns:minmax(0,1fr) 120px 120px auto;gap:8px;align-items:end}
+.addbox label{display:flex;flex-direction:column;gap:3px;font-size:12px;color:var(--mute);min-width:0}
+.addbox input,.addbox select{border:1px solid var(--line);background:var(--bg);padding:7px 8px;width:100%;min-width:0}
+.addbox .wide{grid-column:1/-1}
+.addbox h3{font:800 13px var(--display);font-stretch:112%;text-transform:uppercase;letter-spacing:.06em;margin:0 0 8px}
+@media (max-width:640px){.addbox form{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.addbox form .t{grid-column:1/-1}}
+.mine{font:600 10.5px var(--mono);padding:2px 6px;background:var(--hi);color:var(--hi-ink)}
+.gi{padding:11px 12px;display:grid;gap:6px}
+.gi .top{display:flex;gap:8px;align-items:baseline;justify-content:space-between;flex-wrap:wrap}
+.gi .tt{font-weight:600;min-width:0}
+.gi .gsub{font-size:12.5px;color:var(--mute);display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.gi select{border:1px solid var(--line);background:var(--bg);padding:3px 6px;font-size:12.5px}
+.gi pre{margin:0;white-space:pre-wrap;font:13px/1.5 var(--body);background:var(--soft);padding:8px 10px;border-left:3px solid var(--ink)}
+.pri-High{color:var(--warn);font-weight:600}
+.st{font:600 10.5px var(--mono);padding:2px 6px;border:1px solid var(--line)}
+.st-Done{background:var(--ok);color:var(--bg);border-color:var(--ok)}
+.st-Ready{background:var(--hi);color:var(--hi-ink);border-color:var(--hi)}
+textarea{font:inherit;color:inherit;border:1px solid var(--line);background:var(--bg);padding:7px 8px;width:100%;min-width:0;resize:vertical}
+.ed{border:1.5px solid var(--ink);background:var(--panel);font:600 12px var(--body);padding:2px 10px;cursor:pointer;color:var(--ink)}
+.ed:hover{background:var(--ink);color:var(--bg)}
+.edited{font:600 10.5px var(--mono);padding:2px 6px;border:1px dashed var(--mute);color:var(--mute)}
+.ovl{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:50;display:flex;align-items:flex-start;justify-content:center;padding:calc(env(safe-area-inset-top,0px) + 24px) 16px 24px;overflow-y:auto}
+.ovl[hidden]{display:none}
+.ovl .panel{background:var(--panel);border:1px solid var(--line);width:100%;max-width:680px;padding:18px}
+.ovl h3{font:800 16px var(--display);font-stretch:112%;margin:0 0 12px}
+.ovl form{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.ovl label{display:flex;flex-direction:column;gap:3px;font-size:12px;color:var(--mute);min-width:0}
+.ovl input,.ovl select{border:1px solid var(--line);background:var(--bg);padding:7px 8px;width:100%;min-width:0}
+.ovl .full{grid-column:1/-1}
+.ovl .acts{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.btn2{border:1px solid var(--line);background:none;padding:8px 12px;cursor:pointer;font-weight:600}
+.btn2.warn{color:var(--warn);border-color:var(--warn)}
+@media (max-width:560px){.ovl form{grid-template-columns:minmax(0,1fr)}}
+.del{border:1px solid var(--line);background:none;font-size:12px;padding:1px 7px;cursor:pointer;color:var(--mute)}
+
+/* scorecard */
+.grid2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:20px}
+@media (max-width:820px){.grid2{grid-template-columns:minmax(0,1fr)}}
+.card{background:var(--panel);border:1px solid var(--line);padding:16px}
+.card h3{font:800 15px var(--display);font-stretch:112%;text-transform:uppercase;letter-spacing:.05em;margin:0 0 12px}
+form.log{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+form.log label{display:flex;flex-direction:column;font-size:12px;color:var(--mute);gap:3px}
+form.log input,form.log select{border:1px solid var(--line);background:var(--bg);padding:7px 8px;width:100%;min-width:0}
+form.log .full{grid-column:1/-1}
+.btn{border:0;background:var(--ink);color:var(--bg);padding:9px 14px;font-weight:600;cursor:pointer}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:13.5px}
+th,td{text-align:right;padding:6px 8px;border-bottom:1px solid var(--line);white-space:nowrap}
+th:first-child,td:first-child{text-align:left}
+th{font:600 11px var(--body);text-transform:uppercase;letter-spacing:.06em;color:var(--mute)}
+td.neg{color:var(--warn)} td.pos{color:var(--ok)}
+.msg{font-size:12.5px;color:var(--mute);min-height:1.2em}
+
+/* reference */
+.ref{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+@media (max-width:820px){.ref{grid-template-columns:minmax(0,1fr)}}
+.ref p,.ref li{font-size:14px;max-width:68ch}
+.ref ul{padding-left:18px;margin:0}
+.steps{display:flex;flex-wrap:wrap;gap:6px}
+.steps span{font:500 13px var(--mono);padding:6px 9px;background:var(--soft)}
+.steps span.now{background:var(--hi);color:var(--hi-ink)}
+.lists label{display:grid;grid-template-columns:minmax(0,1fr) 110px;gap:8px;align-items:center;font-size:13.5px;margin-bottom:6px}
+.lists input{border:1px solid var(--line);background:var(--bg);padding:5px 7px;text-align:right;min-width:0}
+.small{font-size:12.5px;color:var(--mute)}
+.tvlink{font:700 12px var(--display);font-stretch:112%;text-transform:uppercase;letter-spacing:.08em;color:var(--ink);border:1.5px solid var(--ink);padding:4px 10px;text-decoration:none}
+.tv{height:100vh;overflow:hidden;padding:3vh 3vw;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.6fr);grid-template-rows:auto minmax(0,1fr);gap:2.4vh 3vw;font-size:clamp(14px,1.35vw,30px);background:var(--bg)}
+.tv[hidden]{display:none}
+.tv .top{grid-column:1/-1;display:flex;justify-content:space-between;align-items:flex-end;border-bottom:.35vh solid var(--ink);padding-bottom:1.4vh;gap:2vw}
+.tv .mark{font-size:clamp(28px,4.2vw,96px)}
+.tv .when{font:800 1.6em/1 var(--display);font-stretch:112%;text-align:right}
+.tv .when small{display:block;font:600 .55em var(--display);letter-spacing:.08em;text-transform:uppercase;color:var(--mute);margin-top:.4em}
+.tv .left{display:grid;gap:2vh;align-content:start}
+.tv .kpi{background:var(--panel);border:1px solid var(--line);padding:1.6vh 1.4vw}
+.tv .kpi .k{font-size:.62em;text-transform:uppercase;letter-spacing:.1em;color:var(--mute)}
+.tv .kpi .v{font:800 2.4em/1.05 var(--display);font-stretch:112%;font-variant-numeric:tabular-nums}
+.tv .kpi .n{font-size:.75em;color:var(--mute)}
+.tv .kpi .bar{height:1.1vh;margin-top:1.2vh}
+.tv .right{background:var(--panel);border:1px solid var(--line);padding:1.8vh 1.6vw;overflow:hidden;display:flex;flex-direction:column;min-height:0}
+.tv h2{font:800 1.25em var(--display);font-stretch:112%;text-transform:uppercase;letter-spacing:.05em;margin:0 0 1.2vh;display:flex;justify-content:space-between;gap:1vw}
+.tv h2 span{color:var(--mute);font-weight:600}
+.tv ul{list-style:none;margin:0;padding:0;overflow:hidden;flex:1;min-height:0}
+.tv li{display:grid;grid-template-columns:1.3em minmax(0,1fr) auto;gap:.8vw;align-items:baseline;padding:.9vh 0;border-bottom:1px solid var(--line)}
+.tv li .bx{width:.9em;height:.9em;border:2px solid var(--ink);display:inline-block}
+.tv li.done .bx{background:var(--ok);border-color:var(--ok)}
+.tv li.done .tt{text-decoration:line-through;color:var(--mute)}
+.tv li .own{font-size:.62em}
+.tv .more{color:var(--mute);font-size:.75em;margin-top:1vh}
+.tv .exit{position:fixed;right:1vw;bottom:1vh;font-size:12px;color:var(--mute);opacity:.5}
+@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="tv" id="tvView" hidden></div>
+<div class="wrap" id="mainView">
+  <header class="mast">
+    <div>
+      <h1 class="mark">ROOF<span class="o">CON</span><span class="caret" aria-hidden="true"></span></h1>
+      <div class="sub">RoofCON 8 · Final 28 days · Oklahoma City · Nov 10–12</div>
+    </div>
+    <div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap"><a class="tvlink" href="#tv">TV view</a><div class="sub" id="savestate">Loading check-offs…</div></div>
+  </header>
+
+  <section class="stats" aria-label="Status">
+    <div class="stat"><div class="k">Doors open in</div><div class="v num" id="s-days">—</div><div class="n">Tue Nov 10 · OKC Convention Center</div></div>
+    <div class="stat"><div class="k">GA price now</div><div class="v num" id="s-price">—</div><div class="n" id="s-next">—</div></div>
+    <div class="stat"><div class="k">New revenue logged</div><div class="v num" id="s-rev">$0</div><div class="n" id="s-revn">of $150,000 minimum</div><div class="bar" title="Black: logged. Amber: where pace says you should be."><i id="s-revbar" style="width:0"></i><b id="s-pace" style="left:0"></b></div></div>
+    <div class="stat"><div class="k">Plan tasks done</div><div class="v num" id="s-done">0 / 0</div><div class="n" id="s-doneN">Routine daily items not counted</div></div>
+  </section>
+
+  <nav class="tabs" role="tablist">
+    <button class="tab" role="tab" id="tab-plan" aria-selected="true" data-tab="plan">Plan</button>
+    <button class="tab" role="tab" id="tab-score" aria-selected="false" data-tab="score">Scorecard</button>
+    <button class="tab" role="tab" id="tab-lee" aria-selected="false" data-tab="lee">Lee's queue</button>
+    <button class="tab" role="tab" id="tab-ref" aria-selected="false" data-tab="ref">Reference</button>
+  </nav>
+
+  <section id="pane-plan">
+    <div class="strip"><div class="days" id="days"></div></div>
+    <div class="controls">
+      <div class="seg" id="owners" aria-label="Owner"></div>
+      <div class="seg" id="scope" aria-label="Range">
+        <button data-scope="day" aria-pressed="true">Selected day</button>
+        <button data-scope="all" aria-pressed="false">Whole plan</button>
+      </div>
+      <label class="chk"><input type="checkbox" id="hideDone"> Hide done</label>
+      <label class="chk"><input type="checkbox" id="showRoutine" checked> Show daily routine</label>
+      <label class="chk pick" for="chFilter">Channel <select id="chFilter"></select></label>
+      <label class="chk pick" for="sortBy">Sort <select id="sortBy"><option value="plan">Plan order</option><option value="ch">By channel</option><option value="owner">By owner</option></select></label>
+    </div>
+    <div id="planOut"></div>
+    <div class="addbox" id="addbox">
+      <h3 id="add-h">Add a task</h3>
+      <form id="addForm">
+        <label class="t" for="a-title">Task <input id="a-title" type="text" maxlength="160" placeholder="e.g. Call ABC Supply about a booth" required></label>
+        <label for="a-owner">Owner <select id="a-owner"><option>Kyle</option><option>Lee</option><option>William</option><option>Sales</option></select></label>
+        <label for="a-ch">Channel <select id="a-ch"><option>Ops</option><option>Meta</option><option>Email</option><option>SMS</option><option>VM</option><option>Organic</option><option>Podcast</option><option>Sales</option><option>Partners</option><option>Web</option><option>Mail</option><option>Other</option></select></label>
+        <button class="btn" id="a-save" type="submit">Add</button>
+        <label class="wide" for="a-detail">Notes or copy (optional) <input id="a-detail" type="text" maxlength="1000"></label>
+      </form>
+      <div class="msg" id="a-msg"></div>
+    </div>
+  </section>
+
+  <section id="pane-score" hidden>
+    <div class="grid2">
+      <div class="card">
+        <h3>Log a day</h3>
+        <form class="log" id="logForm">
+          <label class="full">Day <select id="f-date"></select></label>
+          <label>New GA tickets <input id="f-ga" type="number" min="0" inputmode="numeric"></label>
+          <label>New VIP tickets <input id="f-vip" type="number" min="0" inputmode="numeric"></label>
+          <label>Team packages closed <input id="f-pkg" type="number" min="0" inputmode="numeric"></label>
+          <label>Net new ticket revenue ($) <input id="f-rev" type="number" min="0" step="1" inputmode="numeric"></label>
+          <label>Meta spend ($) <input id="f-spend" type="number" min="0" step="1" inputmode="numeric"></label>
+          <label>Team-pkg leads <input id="f-leads" type="number" min="0" inputmode="numeric"></label>
+          <label class="full">Note <input id="f-note" type="text" maxlength="200" placeholder="What moved the numbers?"></label>
+          <div class="full" style="display:flex;gap:12px;align-items:center"><button class="btn" id="f-save" type="submit">Save day</button><span class="msg" id="f-msg"></span></div>
+        </form>
+      </div>
+      <div class="card">
+        <h3>Against the $150K minimum</h3>
+        <p class="small" style="margin-top:0">Pace is $5,357 a day ($150,000 ÷ 28). Cost per $ is Meta spend divided by revenue for the same days.</p>
+        <div class="tbl"><table>
+          <thead><tr><th>Day</th><th>GA</th><th>VIP</th><th>Pkgs</th><th>Leads</th><th>Revenue</th><th>Spend</th><th>Cum. vs pace</th></tr></thead>
+          <tbody id="logBody"></tbody>
+          <tfoot id="logFoot"></tfoot>
+        </table></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="ovl" id="editor" hidden role="dialog" aria-modal="true" aria-labelledby="e-h">
+    <div class="panel">
+      <h3 id="e-h">Edit task</h3>
+      <form id="eForm">
+        <label class="full" for="e-title">Task <input id="e-title" type="text" maxlength="200" required></label>
+        <label for="e-date">Day <select id="e-date"></select></label>
+        <label for="e-owner">Owner <select id="e-owner"><option>Kyle</option><option>Lee</option><option>William</option><option>Sales</option><option>All</option></select></label>
+        <label for="e-ch">Channel <input id="e-ch" type="text" maxlength="30" list="chlist"></label>
+        <label class="full chk" for="e-all" id="e-allwrap" style="flex-direction:row;color:var(--ink);font-size:13px"><input type="checkbox" id="e-all" style="width:auto"> Apply to every day this daily item appears</label>
+        <datalist id="chlist"><option>Ops</option><option>Meta</option><option>Google</option><option>Email</option><option>SMS</option><option>VM</option><option>Organic</option><option>Podcast</option><option>Sales</option><option>Partners</option><option>Web</option><option>Mail</option><option>Other</option></datalist>
+        <label class="full" for="e-detail">Details <textarea id="e-detail" rows="3" maxlength="3000"></textarea></label>
+        <label class="full" for="e-copy">Draft copy <textarea id="e-copy" rows="9" maxlength="8000"></textarea></label>
+        <div class="acts">
+          <button class="btn" id="e-save" type="submit">Save changes</button>
+          <button class="btn2" type="button" id="e-cancel">Cancel</button>
+          <span style="flex:1"></span>
+          <button class="btn2" type="button" id="e-reset" hidden>Reset to original</button>
+          <button class="btn2 warn" type="button" id="e-remove">Remove task</button>
+        </div>
+        <div class="msg full" id="e-msg"></div>
+      </form>
+    </div>
+  </div>
+
+  <section id="pane-lee" hidden>
+    <div class="grid2">
+      <div class="card">
+        <h3>Add a graphic</h3>
+        <form class="log" id="gForm">
+          <label class="full" for="g-title">What's needed <input id="g-title" type="text" maxlength="160" placeholder="e.g. Speaker card for Dan Lian" required></label>
+          <label for="g-type">Type <select id="g-type"><option>Static ad</option><option>Story</option><option>Feed post</option><option>Carousel</option><option>Email header</option><option>Thumbnail</option><option>Print / mailer</option><option>Partner graphic</option><option>Other</option></select></label>
+          <label for="g-status">Status <select id="g-status"><option>Idea</option><option selected>Requested</option></select></label>
+          <label for="g-due">Due <input id="g-due" type="date" min="2026-10-13" max="2026-11-12"></label>
+          <label for="g-pri">Priority <select id="g-pri"><option>Normal</option><option>High</option><option>Low</option></select></label>
+          <label class="full" for="g-sizes">Sizes <input id="g-sizes" type="text" maxlength="120" placeholder="1:1, 4:5, 9:16"></label>
+          <label class="full" for="g-notes">Copy / notes <textarea id="g-notes" rows="4" maxlength="2000" placeholder="Headline, sub, CTA, links, references"></textarea></label>
+          <div class="full" style="display:flex;gap:12px;align-items:center"><button class="btn" id="g-save" type="submit">Add to Lee's queue</button><span class="msg" id="g-msg"></span></div>
+        </form>
+      </div>
+      <div class="card">
+        <h3>Queue</h3>
+        <div class="controls" style="margin:0 0 10px">
+          <div class="seg" id="gFilter">
+            <button data-g="open" aria-pressed="true">Open</button>
+            <button data-g="Idea" aria-pressed="false">Ideas</button>
+            <button data-g="Done" aria-pressed="false">Done</button>
+            <button data-g="all" aria-pressed="false">All</button>
+          </div>
+        </div>
+        <ul class="tasks" id="gList"></ul>
+        <p class="small">Open = requested, in progress or ready for review, sorted by due date. Lee updates the status on each one.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="pane-ref" hidden>
+    <div class="ref">
+      <div class="card">
+        <h3>Minimum target</h3>
+        <p><strong>$150,000 in new ticket sales</strong> between Oct 13 and Nov 10 across GA, VIP and team packages, at minimum. That floor is about $5,357 a day; anything above it is upside.</p>
+        <p class="small">A proposed mix that gets there (adjust once real sales come in):</p>
+        <div class="tbl"><table>
+          <thead><tr><th>Source</th><th>Units</th><th>Price</th><th>Revenue</th></tr></thead>
+          <tbody>
+            <tr><td>Team packages (5 VIP)</td><td class="num">13</td><td class="num">$5,000</td><td class="num">$65,000</td></tr>
+            <tr><td>Single VIP + upgrades</td><td class="num">30</td><td class="num">$1,297</td><td class="num">$38,910</td></tr>
+            <tr><td>GA (blended price)</td><td class="num">290</td><td class="num">~$170</td><td class="num">$49,300</td></tr>
+            <tr><th>Total</th><th></th><th></th><th class="num">$153,210</th></tr>
+          </tbody>
+        </table></div>
+        <p class="small">Upgrades count at whatever new money they bring in. Log net revenue, not ticket face value.</p>
+      </div>
+
+      <div class="card">
+        <h3>GA price steps</h3>
+        <div class="steps" id="steps"></div>
+        <p>Every Thursday is a "last day at this price" push: email + SMS + story + ads. Every Friday morning, swap the price in every ad, Google headline, the site and bio links.</p>
+        <p><strong>VIP:</strong> $1,297. GA includes main stage, breakouts, expo hall, welcome party. VIP adds expedited registration, VIP seating, VIP Q&amp;A with headline speakers, VIP lounge, VIP lunch days 2 &amp; 3, VIP party day 3.</p>
+      </div>
+
+      <div class="card">
+        <h3>The lead offer</h3>
+        <p><strong>Buy 5 VIP tickets, every eligible team member gets General Admission free. No cap.</strong> The package is $5,000 (5 VIP bought singly would be $6,485). It's the headline in paid, organic, email, SMS, the mailer and sales calls.</p>
+        <p>Audience priority: owners who want to bring their team. Then sales reps and managers, crews/production/office, and suppliers/manufacturers.</p>
+      </div>
+
+      <div class="card">
+        <h3>Ad budget</h3>
+        <p>Meta ~$970/day + Google brand search ≤$30/day = $1,000/day, fixed.</p>
+        <div class="tbl"><table>
+          <thead><tr><th>Meta bucket</th><th>Share</th><th>Per day</th></tr></thead>
+          <tbody>
+            <tr><td>Team package + VIP</td><td class="num">35%</td><td class="num">$340</td></tr>
+            <tr><td>GA acquisition</td><td class="num">35%</td><td class="num">$340</td></tr>
+            <tr><td>Retargeting (site, video viewers, GA→VIP)</td><td class="num">20%</td><td class="num">$195</td></tr>
+            <tr><td>Creative tests</td><td class="num">5%</td><td class="num">$45</td></tr>
+            <tr><td>Exhibitor (booth sales) ad</td><td class="num">5%</td><td class="num">$50</td></tr>
+          </tbody>
+        </table></div>
+        <p class="small">Team/VIP weight is higher than the original playbook (25%) because $150K needs VIP money. Rebalance every Friday on cost per purchase, not CTR. If direct mail is a no-go, the $5K goes to team-offer + retargeting (~$240/day extra through Nov 5).</p>
+      </div>
+
+      <div class="card">
+        <h3>List touches</h3>
+        <p>Every list gets 2+ touches a week by email, text or voicemail drop, never two on the same day except Thursday price deadlines.</p>
+        <ul>
+          <li><strong>Ticket leads:</strong> 13 pre-written emails + Thursday last-day emails and texts + weekly VM drops (Oct 14, 19, 27, Nov 4). Job: buy tickets.</li>
+          <li><strong>Exhibitor leads:</strong> week 1 runs on the Thu Oct 15 exhibitor webinar (invite Oct 13, text Oct 14, day-of email + 1-hr text, replay + booth offer Oct 16, sales calls every registrant, VM Oct 19). Then email + text or VM weekly (Oct 20, 22, 27, 29, Nov 2, 4). Job: book a booth.</li>
+          <li><strong>Ticket holders:</strong> VIP upgrade + team package (Oct 15, 19, 22, 26, 28, 29, Nov 2) and hotel (text Oct 14, VM Oct 20, text Oct 27 if block open).</li>
+          <li><strong>Current exhibitors:</strong> hotel (Oct 14, 20), share-kit follow-ups, checklist email Nov 3, move-in text Nov 9.</li>
+        </ul>
+        <p class="small">Texts and VM drops: consented contacts only, 10am–7pm their time.</p>
+      </div>
+
+      <div class="card">
+        <h3>Weekly rhythm</h3>
+        <ul>
+          <li><strong>Every weekday 9:45–10:00:</strong> huddle. Log yesterday in Scorecard first.</li>
+          <li><strong>Mon:</strong> review 7 days, write briefs. William sends the week's reel list (5–10).</li>
+          <li><strong>Tue:</strong> William delivers the week's new ticket ad; launch new variants.</li>
+          <li><strong>Wed:</strong> midweek ad check.</li>
+          <li><strong>Thu:</strong> last day at current GA price. Email + SMS. 10:30 creative review (Kyle + Lee). William delivers the week's exhibitor (booth) ad.</li>
+          <li><strong>Fri:</strong> swap prices, reallocate budget, one-pager to leadership, schedule the weekend.</li>
+          <li><strong>Sat/Sun:</strong> scheduled posts + email; 10-min ad check.</li>
+        </ul>
+        <p class="small">William, until the event: only 5–10 hand-edited reels, 1 new FB ticket ad and 1 new FB exhibitor ad a week, from past footage. He's on site for the event. Podcast: Diego films, Kyle edits and publishes, target 1 episode a week.</p>
+      </div>
+
+      <div class="card">
+        <h3>Team</h3>
+        <ul>
+          <li><strong>Kyle</strong>: owns the plan, ads, GHL, email/SMS, partners, reporting.</li>
+          <li><strong>Lee</strong> (designer): statics, thumbnails, templates, mailer, partner graphics.</li>
+          <li><strong>William</strong> (videographer): until the event, only 5–10 hand-edited reels, 1 FB ticket ad and 1 FB exhibitor ad a week. On site Nov 10–12.</li>
+          <li><strong>Diego</strong> (sales manager): runs the 3 reps; films the podcast.</li>
+          <li><strong>Sales</strong> (3 reps, separate manager): team leads within 5 min, mailer follow-up calls.</li>
+        </ul>
+        <p class="small">Team flies out Sat Nov 7. Everything from Nov 7 on is scheduled by Fri Nov 6.</p>
+      </div>
+
+      <div class="card lists">
+        <h3>GHL segment sizes</h3>
+        <p class="small" style="margin-top:0">Fill these in once the lists finish loading. Saved for everyone.</p>
+        <label for="l-unreg">Unregistered contacts <input id="l-unreg" data-k="unreg" inputmode="numeric"></label>
+        <label for="l-ga">GA registrants <input id="l-ga" data-k="ga" inputmode="numeric"></label>
+        <label for="l-vip">VIP holders <input id="l-vip" data-k="vip" inputmode="numeric"></label>
+        <label for="l-own">Owners / decision-makers <input id="l-own" data-k="owners" inputmode="numeric"></label>
+        <label for="l-sms">SMS opt-ins <input id="l-sms" data-k="sms" inputmode="numeric"></label>
+        <label for="l-mail">Mailer list (purchased) <input id="l-mail" data-k="mail" inputmode="numeric"></label>
+        <div class="msg" id="l-msg"></div>
+      </div>
+
+      <div class="card">
+        <h3>Still to confirm</h3>
+        <ul>
+          <li>Speaker spellings: Ben Karr, Dan Lian, Dusty Slay. Used in Oct 17, Oct 24 emails and partner graphics.</li>
+          <li>Team offer eligibility wording ("eligible team members" = ?).</li>
+          <li>How GA → VIP upgrades are priced in ticketing.</li>
+          <li>Direct mail go/no-go (Oct 14) and in-home date.</li>
+          <li>Links to fill: [REG LINK], [TEAM PAGE], [SALES LINE], [PARTNER LINK].</li>
+          <li>Event logistics for Nov 4/8/9 emails: badge pickup, VIP check-in spot, parking, hotel, welcome party time.</li>
+          <li>Whether tickets stay on sale online through Nov 10 (sets when acquisition ads turn off).</li>
+          <li>Booths: [BOOTH LINK], who handles booth inquiries, and when booth sales close.</li>
+          <li>Hotel: [HOTEL LINK], discounted rate, block cutoff date (decides whether the Oct 27 hotel text runs).</li>
+          <li>Booth price + what's included, exhibitor list link, exhibitor move-in details.</li>
+          <li>Voicemail drops: GHL ringless VM set up, who records, [SHORT URL] and callback [NUMBER].</li>
+          <li>Can a GA holder's ticket count toward the team package?</li>
+          <li>Exhibitor webinar (Thu Oct 15): start time, host, agenda, join link, and whether it's recorded.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script src="fb.js"></script>
+<script>
+RC.boot(function(){var s=document.createElement("script");s.src="tracker-app.js?v="+RC.ver;document.body.appendChild(s)});
+</script>
+</body>
+</html>

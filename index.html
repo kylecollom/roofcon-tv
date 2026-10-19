@@ -171,16 +171,30 @@ function fit(){
   tl.style.overflow="hidden";tl.style.height=maxH+"px";
 }
 window.onresize=fit;
-function load(){
+var FB="https://roofcon-tracker-default-rtdb.firebaseio.com";
+var qm=location.search.match(/[?&]db=([^&]+)/);if(qm)FB=decodeURIComponent(qm[1]);
+function get(url,cb){
   var x=new XMLHttpRequest();
-  x.open("GET","data.json?t="+(new Date().getTime()),true);
+  x.open("GET",url,true);
   x.onreadystatechange=function(){
     if(x.readyState!==4)return;
-    if(x.status>=200&&x.status<300){
-      try{render(JSON.parse(x.responseText))}catch(e){$("upd").textContent="Data error: "+e.message}
-    }else{$("upd").textContent="Waiting for data (status "+x.status+")"}
+    var d=null;
+    if(x.status>=200&&x.status<300){try{d=JSON.parse(x.responseText)}catch(e){d=null}}
+    cb(d,x.status);
   };
   x.send();
+}
+function load(){
+  var ts=new Date().getTime(),pend=2,a=null,b=null,st=0;
+  function done(){
+    if(--pend>0)return;
+    // use whichever source is newer: the live tracker board (Firebase) or the synced data.json
+    var pick=a&&b?((b.updated||"")>=(a.updated||"")?b:a):(b||a);
+    if(!pick){$("upd").textContent="Waiting for data (status "+st+")";return}
+    try{render(pick)}catch(e){$("upd").textContent="Data error: "+e.message}
+  }
+  get("data.json?t="+ts,function(d,s){a=d;if(!d)st=s;done()});
+  get(FB+"/pub/board.json?t="+ts,function(d){b=(d&&d.days&&d.tasks)?d:null;done()});
 }
 load();setInterval(load,60000);
 })();
