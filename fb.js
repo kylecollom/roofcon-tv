@@ -2,7 +2,7 @@
    Gives the tracker the same small db API it used inside claude.ai (doc/collection/set/update/delete/add/onSnapshot),
    backed by the Realtime Database REST API. Team data lives under /t/<team key>; only the TV board (/pub/board) is public. */
 (function(){
-  var RC=window.RC={ver:"1"};
+  var RC=window.RC={ver:"2"};
   var qs=(location.search.match(/[?&]db=([^&]+)/)||[])[1];
   var BASE=(qs?decodeURIComponent(qs):"https://roofcon-tracker-default-rtdb.firebaseio.com").replace(/\/$/,"");
   RC.base=BASE;
@@ -92,7 +92,10 @@
         // empty or wrong key: an empty DB at a brand-new key can be imported; check nothing else exists.
         askImport();return;
       }
-      window.SIGN=p.sign;window.PLAN=p.plan;
+      // Realtime Database drops empty lists and may return lists as objects; restore the plan's shape.
+      var arr=function(x){return Array.isArray(x)?x:(x&&typeof x==="object"?Object.keys(x).sort(function(a,b){return a-b}).map(function(k){return x[k]}):[])};
+      var plan=arr(p.plan).map(function(d){d.tasks=arr(d.tasks).map(function(t){t.detail=t.detail||"";t.copy=t.copy||"";return t});return d});
+      window.SIGN=p.sign;window.PLAN=plan;
       window.claude={use:function(n){return Promise.resolve(n==="db"?db:null)}};
       closeGate();done();
     }).catch(function(e){
