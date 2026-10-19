@@ -1,78 +1,150 @@
 {
-  "updated": "2026-10-19T03:56:00Z",
-  "days": [
-    {
-      "date": "2026-10-13",
-      "ga": 3,
-      "vip": 2,
-      "pkg": 0,
-      "rev": 1910.16,
-      "booth": 7210,
-      "booths": 1
-    },
-    {
-      "date": "2026-10-14",
-      "ga": 3,
-      "vip": 2,
-      "pkg": 0,
-      "rev": 2520.41,
-      "booth": 12800,
-      "booths": 2
-    },
-    {
-      "date": "2026-10-15",
-      "ga": 7,
-      "vip": 3,
-      "pkg": 0,
-      "rev": 4347.9,
-      "booth": 0,
-      "booths": 0
-    },
-    {
-      "date": "2026-10-16",
-      "ga": 3,
-      "vip": 1,
-      "pkg": 0,
-      "rev": 1532.23,
-      "booth": 30150,
-      "booths": 2
-    },
-    {
-      "date": "2026-10-17",
-      "ga": 2,
-      "vip": 0,
-      "pkg": 0,
-      "rev": 309,
-      "booth": 0,
-      "booths": 0
-    },
-    {
-      "date": "2026-10-18",
-      "ga": 0,
-      "vip": 0,
-      "pkg": 0,
-      "rev": 0,
-      "booth": 0,
-      "booths": 0
-    }
-  ],
-  "tasks": {
-    "date": "2026-10-18",
-    "items": [
-      {
-        "id": "r1018-a",
-        "owner": "Kyle",
-        "ch": "Organic",
-        "title": "Confirm scheduled reel + stories posted (FB, IG, TikTok, YT Shorts)",
-        "done": false
-      },
-      {
-        "id": "1018-1",
-        "owner": "Kyle",
-        "ch": "Ops",
-        "title": "Plan week 2 (15 min)",
-        "done": false
-      }
-    ]
+ "updated": "2026-10-19T16:27:32Z",
+ "days": [
+  {
+   "date": "2026-10-13",
+   "ga": 3,
+   "vip": 2,
+   "pkg": 0,
+   "rev": 1910.16,
+   "booth": 7210,
+   "booths": 1
+  },
+  {
+   "date": "2026-10-14",
+   "ga": 3,
+   "vip": 2,
+   "pkg": 0,
+   "rev": 2520.41,
+   "booth": 12800,
+   "booths": 2
+  },
+  {
+   "date": "2026-10-15",
+   "ga": 7,
+   "vip": 3,
+   "pkg": 0,
+   "rev": 4347.9,
+   "booth": 0,
+   "booths": 0
+  },
+  {
+   "date": "2026-10-16",
+   "ga": 3,
+   "vip": 1,
+   "pkg": 0,
+   "rev": 1532.23,
+   "booth": 30150,
+   "booths": 2
+  },
+  {
+   "date": "2026-10-17",
+   "ga": 2,
+   "vip": 0,
+   "pkg": 0,
+   "rev": 309,
+   "booth": 0,
+   "booths": 0
+  },
+  {
+   "date": "2026-10-18",
+   "ga": 0,
+   "vip": 0,
+   "pkg": 0,
+   "rev": 0,
+   "booth": 0,
+   "booths": 0
+  },
+  {
+   "date": "2026-10-19",
+   "ga": 0,
+   "vip": 0,
+   "pkg": 0,
+   "rev": 0,
+   "booth": 0,
+   "booths": 0
   }
+ ],
+ "tasks": {
+  "date": "2026-10-19",
+  "items": [
+   {
+    "id": "r1019-h",
+    "owner": "All",
+    "ch": "Ops",
+    "title": "9:45 huddle \u2014 log yesterday in Scorecard first",
+    "done": false
+   },
+   {
+    "id": "r1019-m",
+    "owner": "Kyle",
+    "ch": "Meta",
+    "title": "Meta check: spend pacing, cost per purchase, anything broken",
+    "done": false
+   },
+   {
+    "id": "r1019-s",
+    "owner": "Kyle",
+    "ch": "Partners",
+    "title": "Sponsor post goes live \u2014 message that sponsor the link, ask for a share or IG collab",
+    "done": false
+   },
+   {
+    "id": "r1019-o",
+    "owner": "Kyle",
+    "ch": "Organic",
+    "title": "Post 1\u20132 reels + daily stories (countdown + offer)",
+    "done": false
+   },
+   {
+    "id": "1019-1",
+    "owner": "Kyle",
+    "ch": "Meta",
+    "title": "Weekly review + week 2 briefs",
+    "done": false
+   },
+   {
+    "id": "1019-2",
+    "owner": "William",
+    "ch": "Organic",
+    "title": "Reels: 5\u201310 this week",
+    "done": false
+   },
+   {
+    "id": "1019-3",
+    "owner": "Kyle",
+    "ch": "Email",
+    "title": "Send: VIP upgrade #1 (GA registrants)",
+    "done": false
+   },
+   {
+    "id": "1019-4",
+    "owner": "Kyle",
+    "ch": "Mail",
+    "title": "Confirm mail is in production (if GO)",
+    "done": false
+   },
+   {
+    "id": "1019-5",
+    "owner": "Kyle",
+    "ch": "Sales",
+    "title": "Open group-leads review with Diego",
+    "done": false
+   },
+   {
+    "id": "1019-6",
+    "owner": "Kyle",
+    "ch": "VM",
+    "title": "VM drop TV2 to ticket leads: \"$150 through Thursday\"",
+    "done": false
+   },
+   {
+    "id": "1019-7",
+    "owner": "Kyle",
+    "ch": "VM",
+    "title": "VM drop XV1 to exhibitor leads: webinar follow-up",
+    "done": false
+   }
+  ]
+ }
 }
