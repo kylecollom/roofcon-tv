@@ -2,7 +2,7 @@
    Gives the tracker the same small db API it used inside claude.ai (doc/collection/set/update/delete/add/onSnapshot),
    backed by the Realtime Database REST API. Team data lives under /t/<team key>; only the TV board (/pub/board) is public. */
 (function(){
-  var RC=window.RC={ver:"2"};
+  var RC=window.RC={ver:"3"};
   var qs=(location.search.match(/[?&]db=([^&]+)/)||[])[1];
   var BASE=(qs?decodeURIComponent(qs):"https://roofcon-tracker-default-rtdb.firebaseio.com").replace(/\/$/,"");
   RC.base=BASE;
@@ -95,6 +95,11 @@
       // Realtime Database drops empty lists and may return lists as objects; restore the plan's shape.
       var arr=function(x){return Array.isArray(x)?x:(x&&typeof x==="object"?Object.keys(x).sort(function(a,b){return a-b}).map(function(k){return x[k]}):[])};
       var plan=arr(p.plan).map(function(d){d.tasks=arr(d.tasks).map(function(t){t.detail=t.detail||"";t.copy=t.copy||"";return t});return d});
+      // Reel volume update (3-4 reels a day): applied to the stored plan text so it needs no database edit.
+      var RP=[["Reels: 5\u201310 this week","Reels: 21\u201328 this week"],["Deliver 1\u20132 a day to Kyle","Deliver 3\u20134 a day to Kyle"],["Deliver 1\u20132 a day.","Deliver 3\u20134 a day."],
+        ["(part of the 5\u201310)","(part of the 21\u201328)"],["2\u20133 reels Kyle can schedule for Sat/Sun.","6\u20138 reels Kyle can schedule for Sat/Sun (3\u20134 a day)."],["2\u20133 reels for Sat/Sun.","6\u20138 reels for Sat/Sun (3\u20134 a day)."],
+        ["1 reel per day","3\u20134 reels per day"]];
+      plan.forEach(function(d){d.tasks.forEach(function(t){["title","detail","copy"].forEach(function(k){RP.forEach(function(r){if(t[k]&&t[k].indexOf(r[0])>-1)t[k]=t[k].split(r[0]).join(r[1])})})})});
       window.SIGN=p.sign;window.PLAN=plan;
       window.claude={use:function(n){return Promise.resolve(n==="db"?db:null)}};
       closeGate();done();
