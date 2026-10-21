@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-19T16:27:32Z",
+ "updated": "2026-10-21T12:18:02Z",
  "days": [
   {
    "date": "2026-10-13",
@@ -57,6 +57,24 @@
   },
   {
    "date": "2026-10-19",
+   "ga": 5,
+   "vip": 0,
+   "pkg": 0,
+   "rev": 772.5,
+   "booth": 0,
+   "booths": 0
+  },
+  {
+   "date": "2026-10-20",
+   "ga": 5,
+   "vip": 1,
+   "pkg": 0,
+   "rev": 1953.91,
+   "booth": 8000,
+   "booths": 2
+  },
+  {
+   "date": "2026-10-21",
    "ga": 0,
    "vip": 0,
    "pkg": 0,
@@ -66,83 +84,76 @@
   }
  ],
  "tasks": {
-  "date": "2026-10-19",
+  "date": "2026-10-21",
   "items": [
    {
-    "id": "r1019-h",
+    "id": "r1021-h",
     "owner": "All",
     "ch": "Ops",
     "title": "9:45 huddle \u2014 log yesterday in Scorecard first",
     "done": false
    },
    {
-    "id": "r1019-m",
+    "id": "r1021-m",
     "owner": "Kyle",
     "ch": "Meta",
     "title": "Meta check: spend pacing, cost per purchase, anything broken",
     "done": false
    },
    {
-    "id": "r1019-s",
+    "id": "r1021-s",
     "owner": "Kyle",
     "ch": "Partners",
     "title": "Sponsor post goes live \u2014 message that sponsor the link, ask for a share or IG collab",
     "done": false
    },
    {
-    "id": "r1019-o",
+    "id": "r1021-o",
     "owner": "Kyle",
     "ch": "Organic",
-    "title": "Post 1\u20132 reels + daily stories (countdown + offer)",
+    "title": "Post 3\u20134 reels + daily stories (countdown + offer)",
     "done": false
    },
    {
-    "id": "1019-1",
-    "owner": "Kyle",
-    "ch": "Meta",
-    "title": "Weekly review + week 2 briefs",
-    "done": false
-   },
-   {
-    "id": "1019-2",
-    "owner": "William",
-    "ch": "Organic",
-    "title": "Reels: 5\u201310 this week",
-    "done": false
-   },
-   {
-    "id": "1019-3",
+    "id": "r1021-l",
     "owner": "Kyle",
     "ch": "Email",
-    "title": "Send: VIP upgrade #1 (GA registrants)",
+    "title": "Pre-written leads email sends today \u2014 confirm it went out",
     "done": false
    },
    {
-    "id": "1019-4",
+    "id": "1021-1",
+    "owner": "Kyle",
+    "ch": "Meta",
+    "title": "Midweek signal check",
+    "done": false
+   },
+   {
+    "id": "1021-2",
+    "owner": "Kyle",
+    "ch": "Partners",
+    "title": "Ask past attendees for testimonial clips",
+    "done": false
+   },
+   {
+    "id": "1021-3",
+    "owner": "Kyle",
+    "ch": "Partners",
+    "title": "Nudge partners who haven't posted",
+    "done": false
+   },
+   {
+    "id": "1021-4",
+    "owner": "Lee",
+    "ch": "Organic",
+    "title": "'Last day at $150' graphics for Thursday",
+    "done": false
+   },
+   {
+    "id": "1021-5",
     "owner": "Kyle",
     "ch": "Mail",
-    "title": "Confirm mail is in production (if GO)",
-    "done": false
-   },
-   {
-    "id": "1019-5",
-    "owner": "Kyle",
-    "ch": "Sales",
-    "title": "Open group-leads review with Diego",
-    "done": false
-   },
-   {
-    "id": "1019-6",
-    "owner": "Kyle",
-    "ch": "VM",
-    "title": "VM drop TV2 to ticket leads: \"$150 through Thursday\"",
-    "done": false
-   },
-   {
-    "id": "1019-7",
-    "owner": "Kyle",
-    "ch": "VM",
-    "title": "VM drop XV1 to exhibitor leads: webinar follow-up",
+    "title": "Test the mail QR + landing variant",
     "done": false
    }
   ]
