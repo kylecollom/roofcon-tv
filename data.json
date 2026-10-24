@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-21T12:18:02Z",
+ "updated": "2026-10-24T07:55:00Z",
  "days": [
   {
    "date": "2026-10-13",
@@ -75,6 +75,33 @@
   },
   {
    "date": "2026-10-21",
+   "ga": 11,
+   "vip": 1,
+   "pkg": 0,
+   "rev": 2477.05,
+   "booth": 6180,
+   "booths": 3
+  },
+  {
+   "date": "2026-10-22",
+   "ga": 3,
+   "vip": 1,
+   "pkg": 0,
+   "rev": 1696.41,
+   "booth": 0,
+   "booths": 0
+  },
+  {
+   "date": "2026-10-23",
+   "ga": 4,
+   "vip": 2,
+   "pkg": 0,
+   "rev": 2488.27,
+   "booth": 17180,
+   "booths": 3
+  },
+  {
+   "date": "2026-10-24",
    "ga": 0,
    "vip": 0,
    "pkg": 0,
@@ -84,76 +111,13 @@
   }
  ],
  "tasks": {
-  "date": "2026-10-21",
+  "date": "2026-10-24",
   "items": [
    {
-    "id": "r1021-h",
-    "owner": "All",
-    "ch": "Ops",
-    "title": "9:45 huddle \u2014 log yesterday in Scorecard first",
-    "done": false
-   },
-   {
-    "id": "r1021-m",
-    "owner": "Kyle",
-    "ch": "Meta",
-    "title": "Meta check: spend pacing, cost per purchase, anything broken",
-    "done": false
-   },
-   {
-    "id": "r1021-s",
-    "owner": "Kyle",
-    "ch": "Partners",
-    "title": "Sponsor post goes live \u2014 message that sponsor the link, ask for a share or IG collab",
-    "done": false
-   },
-   {
-    "id": "r1021-o",
+    "id": "r1024-a",
     "owner": "Kyle",
     "ch": "Organic",
-    "title": "Post 3\u20134 reels + daily stories (countdown + offer)",
-    "done": false
-   },
-   {
-    "id": "r1021-l",
-    "owner": "Kyle",
-    "ch": "Email",
-    "title": "Pre-written leads email sends today \u2014 confirm it went out",
-    "done": false
-   },
-   {
-    "id": "1021-1",
-    "owner": "Kyle",
-    "ch": "Meta",
-    "title": "Midweek signal check",
-    "done": false
-   },
-   {
-    "id": "1021-2",
-    "owner": "Kyle",
-    "ch": "Partners",
-    "title": "Ask past attendees for testimonial clips",
-    "done": false
-   },
-   {
-    "id": "1021-3",
-    "owner": "Kyle",
-    "ch": "Partners",
-    "title": "Nudge partners who haven't posted",
-    "done": false
-   },
-   {
-    "id": "1021-4",
-    "owner": "Lee",
-    "ch": "Organic",
-    "title": "'Last day at $150' graphics for Thursday",
-    "done": false
-   },
-   {
-    "id": "1021-5",
-    "owner": "Kyle",
-    "ch": "Mail",
-    "title": "Test the mail QR + landing variant",
+    "title": "Confirm scheduled reel + stories posted (FB, IG, TikTok, YT Shorts)",
     "done": false
    }
   ]
