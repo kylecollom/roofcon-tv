@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-25T03:51:42Z",
+ "updated": "2026-10-25T12:51:32Z",
  "days": [
   {
    "date": "2026-10-13",
@@ -108,16 +108,32 @@
    "rev": 0,
    "booth": 0,
    "booths": 0
+  },
+  {
+   "date": "2026-10-25",
+   "ga": 0,
+   "vip": 0,
+   "pkg": 0,
+   "rev": 0,
+   "booth": 0,
+   "booths": 0
   }
  ],
  "tasks": {
-  "date": "2026-10-24",
+  "date": "2026-10-25",
   "items": [
    {
-    "id": "r1024-a",
+    "id": "r1025-a",
     "owner": "Kyle",
     "ch": "Organic",
     "title": "Confirm scheduled reel + stories posted (FB, IG, TikTok, YT Shorts)",
+    "done": false
+   },
+   {
+    "id": "1025-1",
+    "owner": "Kyle",
+    "ch": "Ops",
+    "title": "Plan week 3 (15 min)",
     "done": false
    }
   ]
