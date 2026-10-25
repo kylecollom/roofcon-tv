@@ -1,125 +1,125 @@
 {
-  "updated": "2026-10-24T22:53:00Z",
-  "days": [
-    {
-      "date": "2026-10-13",
-      "ga": 3,
-      "vip": 2,
-      "pkg": 0,
-      "rev": 1910.16,
-      "booth": 7210,
-      "booths": 1
-    },
-    {
-      "date": "2026-10-14",
-      "ga": 3,
-      "vip": 2,
-      "pkg": 0,
-      "rev": 2520.41,
-      "booth": 12800,
-      "booths": 2
-    },
-    {
-      "date": "2026-10-15",
-      "ga": 7,
-      "vip": 3,
-      "pkg": 0,
-      "rev": 4347.9,
-      "booth": 0,
-      "booths": 0
-    },
-    {
-      "date": "2026-10-16",
-      "ga": 3,
-      "vip": 1,
-      "pkg": 0,
-      "rev": 1532.23,
-      "booth": 30150,
-      "booths": 2
-    },
-    {
-      "date": "2026-10-17",
-      "ga": 2,
-      "vip": 0,
-      "pkg": 0,
-      "rev": 309,
-      "booth": 0,
-      "booths": 0
-    },
-    {
-      "date": "2026-10-18",
-      "ga": 0,
-      "vip": 0,
-      "pkg": 0,
-      "rev": 0,
-      "booth": 0,
-      "booths": 0
-    },
-    {
-      "date": "2026-10-19",
-      "ga": 5,
-      "vip": 0,
-      "pkg": 0,
-      "rev": 772.5,
-      "booth": 0,
-      "booths": 0
-    },
-    {
-      "date": "2026-10-20",
-      "ga": 5,
-      "vip": 1,
-      "pkg": 0,
-      "rev": 1953.91,
-      "booth": 8000,
-      "booths": 2
-    },
-    {
-      "date": "2026-10-21",
-      "ga": 11,
-      "vip": 1,
-      "pkg": 0,
-      "rev": 2477.05,
-      "booth": 6180,
-      "booths": 3
-    },
-    {
-      "date": "2026-10-22",
-      "ga": 3,
-      "vip": 1,
-      "pkg": 0,
-      "rev": 1696.41,
-      "booth": 0,
-      "booths": 0
-    },
-    {
-      "date": "2026-10-23",
-      "ga": 4,
-      "vip": 2,
-      "pkg": 0,
-      "rev": 2488.27,
-      "booth": 17180,
-      "booths": 3
-    },
-    {
-      "date": "2026-10-24",
-      "ga": 0,
-      "vip": 2,
-      "pkg": 0,
-      "rev": 0,
-      "booth": 0,
-      "booths": 0
-    }
-  ],
-  "tasks": {
-    "date": "2026-10-24",
-    "items": [
-      {
-        "id": "r1024-a",
-        "owner": "Kyle",
-        "ch": "Organic",
-        "title": "Confirm scheduled reel + stories posted (FB, IG, TikTok, YT Shorts)",
-        "done": false
-      }
-    ]
+ "updated": "2026-10-25T03:51:42Z",
+ "days": [
+  {
+   "date": "2026-10-13",
+   "ga": 3,
+   "vip": 2,
+   "pkg": 0,
+   "rev": 1910.16,
+   "booth": 7210,
+   "booths": 1
+  },
+  {
+   "date": "2026-10-14",
+   "ga": 3,
+   "vip": 2,
+   "pkg": 0,
+   "rev": 2520.41,
+   "booth": 12800,
+   "booths": 2
+  },
+  {
+   "date": "2026-10-15",
+   "ga": 7,
+   "vip": 3,
+   "pkg": 0,
+   "rev": 4347.9,
+   "booth": 0,
+   "booths": 0
+  },
+  {
+   "date": "2026-10-16",
+   "ga": 3,
+   "vip": 1,
+   "pkg": 0,
+   "rev": 1532.23,
+   "booth": 30150,
+   "booths": 2
+  },
+  {
+   "date": "2026-10-17",
+   "ga": 2,
+   "vip": 0,
+   "pkg": 0,
+   "rev": 309,
+   "booth": 0,
+   "booths": 0
+  },
+  {
+   "date": "2026-10-18",
+   "ga": 0,
+   "vip": 0,
+   "pkg": 0,
+   "rev": 0,
+   "booth": 0,
+   "booths": 0
+  },
+  {
+   "date": "2026-10-19",
+   "ga": 5,
+   "vip": 0,
+   "pkg": 0,
+   "rev": 772.5,
+   "booth": 0,
+   "booths": 0
+  },
+  {
+   "date": "2026-10-20",
+   "ga": 5,
+   "vip": 1,
+   "pkg": 0,
+   "rev": 1953.91,
+   "booth": 8000,
+   "booths": 2
+  },
+  {
+   "date": "2026-10-21",
+   "ga": 11,
+   "vip": 1,
+   "pkg": 0,
+   "rev": 2477.05,
+   "booth": 6180,
+   "booths": 3
+  },
+  {
+   "date": "2026-10-22",
+   "ga": 3,
+   "vip": 1,
+   "pkg": 0,
+   "rev": 1696.41,
+   "booth": 0,
+   "booths": 0
+  },
+  {
+   "date": "2026-10-23",
+   "ga": 4,
+   "vip": 2,
+   "pkg": 0,
+   "rev": 2488.27,
+   "booth": 17180,
+   "booths": 3
+  },
+  {
+   "date": "2026-10-24",
+   "ga": 0,
+   "vip": 2,
+   "pkg": 0,
+   "rev": 0,
+   "booth": 0,
+   "booths": 0
   }
+ ],
+ "tasks": {
+  "date": "2026-10-24",
+  "items": [
+   {
+    "id": "r1024-a",
+    "owner": "Kyle",
+    "ch": "Organic",
+    "title": "Confirm scheduled reel + stories posted (FB, IG, TikTok, YT Shorts)",
+    "done": false
+   }
+  ]
+ }
 }
