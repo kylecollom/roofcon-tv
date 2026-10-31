@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-26T03:51:18Z",
+ "updated": "2026-10-31T07:52:00Z",
  "days": [
   {
    "date": "2026-10-13",
@@ -117,23 +117,77 @@
    "rev": 0,
    "booth": 0,
    "booths": 0
+  },
+  {
+   "date": "2026-10-26",
+   "ga": 10,
+   "vip": 0,
+   "pkg": 0,
+   "rev": 849.75,
+   "booth": 4500,
+   "booths": 1
+  },
+  {
+   "date": "2026-10-27",
+   "ga": 12,
+   "vip": 2,
+   "pkg": 0,
+   "rev": 180.25,
+   "booth": 0,
+   "booths": 0
+  },
+  {
+   "date": "2026-10-28",
+   "ga": 18,
+   "vip": 0,
+   "pkg": 0,
+   "rev": 1319.43,
+   "booth": 3502,
+   "booths": 1
+  },
+  {
+   "date": "2026-10-29",
+   "ga": 17,
+   "vip": 5,
+   "pkg": 0,
+   "rev": 5877.22,
+   "booth": 9785,
+   "booths": 2
+  },
+  {
+   "date": "2026-10-30",
+   "ga": 2,
+   "vip": 1,
+   "pkg": 0,
+   "rev": 848.21,
+   "booth": 14635,
+   "booths": 3
+  },
+  {
+   "date": "2026-10-31",
+   "ga": 0,
+   "vip": 0,
+   "pkg": 0,
+   "rev": 0,
+   "booth": 0,
+   "booths": 0
   }
  ],
  "tasks": {
-  "date": "2026-10-25",
+  "date": "2026-10-31",
   "items": [
    {
-    "id": "r1025-a",
+    "id": "r1031-a",
     "owner": "Kyle",
     "ch": "Organic",
     "title": "Confirm scheduled reel + stories posted (FB, IG, TikTok, YT Shorts)",
     "done": false
    },
    {
-    "id": "1025-1",
+    "id": "1031-1",
     "owner": "Kyle",
-    "ch": "Ops",
-    "title": "Plan week 3 (15 min)",
+    "ch": "Email",
+    "title": "Scheduled: don't come alone (owners)",
     "done": false
    }
   ]
