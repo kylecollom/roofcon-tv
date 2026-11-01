@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-01T03:51:21Z",
+ "updated": "2026-11-01T13:53:00Z",
  "days": [
   {
    "date": "2026-10-13",
@@ -171,23 +171,32 @@
    "rev": 0,
    "booth": 0,
    "booths": 0
+  },
+  {
+   "date": "2026-11-01",
+   "ga": 0,
+   "vip": 0,
+   "pkg": 0,
+   "rev": 0,
+   "booth": 0,
+   "booths": 0
   }
  ],
  "tasks": {
-  "date": "2026-10-31",
+  "date": "2026-11-01",
   "items": [
    {
-    "id": "r1031-a",
+    "id": "r1101-a",
     "owner": "Kyle",
     "ch": "Organic",
     "title": "Confirm scheduled reel + stories posted (FB, IG, TikTok, YT Shorts)",
     "done": false
    },
    {
-    "id": "1031-1",
+    "id": "1101-1",
     "owner": "Kyle",
-    "ch": "Email",
-    "title": "Scheduled: don't come alone (owners)",
+    "ch": "Ops",
+    "title": "Plan final week (15 min)",
     "done": false
    }
   ]
