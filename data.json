@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-02T04:55:00Z",
+ "updated": "2026-11-07T08:55:00Z",
  "days": [
   {
    "date": "2026-10-13",
@@ -180,23 +180,84 @@
    "rev": 0,
    "booth": 0,
    "booths": 0
+  },
+  {
+   "date": "2026-11-02",
+   "ga": 7,
+   "vip": 0,
+   "pkg": 0,
+   "rev": 721,
+   "booth": 9150,
+   "booths": 2
+  },
+  {
+   "date": "2026-11-03",
+   "ga": 24,
+   "vip": 2,
+   "pkg": 0,
+   "rev": 3744.57,
+   "booth": 4635,
+   "booths": 2
+  },
+  {
+   "date": "2026-11-04",
+   "ga": 49,
+   "vip": 1,
+   "pkg": 0,
+   "rev": 6291.14,
+   "booth": 20270,
+   "booths": 3
+  },
+  {
+   "date": "2026-11-05",
+   "ga": 18,
+   "vip": 2,
+   "pkg": 0,
+   "rev": 4122.06,
+   "booth": 5000,
+   "booths": 1
+  },
+  {
+   "date": "2026-11-06",
+   "ga": 23,
+   "vip": 3,
+   "pkg": 0,
+   "rev": 3942.09,
+   "booth": 4000,
+   "booths": 2
+  },
+  {
+   "date": "2026-11-07",
+   "ga": 0,
+   "vip": 0,
+   "pkg": 0,
+   "rev": 0,
+   "booth": 0,
+   "booths": 0
   }
  ],
  "tasks": {
-  "date": "2026-11-01",
+  "date": "2026-11-07",
   "items": [
    {
-    "id": "r1101-a",
+    "id": "r1107-a",
     "owner": "Kyle",
     "ch": "Organic",
     "title": "Confirm scheduled reel + stories posted (FB, IG, TikTok, YT Shorts)",
     "done": false
    },
    {
-    "id": "1101-1",
+    "id": "r1107-l",
     "owner": "Kyle",
-    "ch": "Ops",
-    "title": "Plan final week (15 min)",
+    "ch": "Email",
+    "title": "Pre-written leads email sends today \u2014 confirm it went out",
+    "done": false
+   },
+   {
+    "id": "1107-1",
+    "owner": "Kyle",
+    "ch": "Meta",
+    "title": "10-min ad check from phone",
     "done": false
    }
   ]
