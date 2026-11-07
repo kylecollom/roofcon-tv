@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-07T18:52:31Z",
+ "updated": "2026-11-07T23:55:00Z",
  "days": [
   {
    "date": "2026-10-13",
@@ -228,12 +228,12 @@
   },
   {
    "date": "2026-11-07",
-   "ga": 3,
-   "vip": 0,
+   "ga": 4,
+   "vip": 1,
    "pkg": 0,
-   "rev": 540.75,
-   "booth": 9270,
-   "booths": 3
+   "rev": 1789.73,
+   "booth": 13390,
+   "booths": 4
   }
  ],
  "tasks": {
@@ -250,7 +250,7 @@
     "id": "r1107-l",
     "owner": "Kyle",
     "ch": "Email",
-    "title": "Pre-written leads email sends today — confirm it went out",
+    "title": "Pre-written leads email sends today \u2014 confirm it went out",
     "done": false
    },
    {
