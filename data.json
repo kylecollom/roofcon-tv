@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-07T23:55:00Z",
+ "updated": "2026-11-08T04:53:00Z",
  "days": [
   {
    "date": "2026-10-13",
@@ -42,7 +42,7 @@
    "ga": 2,
    "vip": 0,
    "pkg": 0,
-   "rev": 309.0,
+   "rev": 309,
    "booth": 0,
    "booths": 0
   },
@@ -51,7 +51,7 @@
    "ga": 0,
    "vip": 0,
    "pkg": 0,
-   "rev": 0.0,
+   "rev": 0,
    "booth": 0,
    "booths": 0
   },
@@ -105,7 +105,7 @@
    "ga": 0,
    "vip": 2,
    "pkg": 0,
-   "rev": 0.0,
+   "rev": 0,
    "booth": 0,
    "booths": 0
   },
@@ -114,7 +114,7 @@
    "ga": 0,
    "vip": 0,
    "pkg": 0,
-   "rev": 0.0,
+   "rev": 0,
    "booth": 0,
    "booths": 0
   },
@@ -168,7 +168,7 @@
    "ga": 0,
    "vip": 0,
    "pkg": 0,
-   "rev": 0.0,
+   "rev": 0,
    "booth": 0,
    "booths": 0
   },
@@ -177,7 +177,7 @@
    "ga": 0,
    "vip": 0,
    "pkg": 0,
-   "rev": 0.0,
+   "rev": 0,
    "booth": 0,
    "booths": 0
   },
@@ -186,7 +186,7 @@
    "ga": 7,
    "vip": 0,
    "pkg": 0,
-   "rev": 721.0,
+   "rev": 721,
    "booth": 9150,
    "booths": 2
   },
@@ -229,9 +229,9 @@
   {
    "date": "2026-11-07",
    "ga": 4,
-   "vip": 1,
+   "vip": 3,
    "pkg": 0,
-   "rev": 1789.73,
+   "rev": 3128.73,
    "booth": 13390,
    "booths": 4
   }
@@ -250,7 +250,7 @@
     "id": "r1107-l",
     "owner": "Kyle",
     "ch": "Email",
-    "title": "Pre-written leads email sends today \u2014 confirm it went out",
+    "title": "Pre-written leads email sends today — confirm it went out",
     "done": false
    },
    {
