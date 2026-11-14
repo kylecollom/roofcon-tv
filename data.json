@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-09T04:54:15Z",
+ "updated": "2026-11-14T08:55:00Z",
  "days": [
   {
    "date": "2026-10-13",
@@ -7,7 +7,7 @@
    "vip": 2,
    "pkg": 0,
    "rev": 1910.16,
-   "booth": 7210.0,
+   "booth": 7210,
    "booths": 1
   },
   {
@@ -16,7 +16,7 @@
    "vip": 2,
    "pkg": 0,
    "rev": 2520.41,
-   "booth": 12800.0,
+   "booth": 12800,
    "booths": 2
   },
   {
@@ -25,7 +25,7 @@
    "vip": 3,
    "pkg": 0,
    "rev": 4347.9,
-   "booth": 0.0,
+   "booth": 0,
    "booths": 0
   },
   {
@@ -34,7 +34,7 @@
    "vip": 1,
    "pkg": 0,
    "rev": 1532.23,
-   "booth": 30150.0,
+   "booth": 30150,
    "booths": 2
   },
   {
@@ -42,8 +42,8 @@
    "ga": 2,
    "vip": 0,
    "pkg": 0,
-   "rev": 309.0,
-   "booth": 0.0,
+   "rev": 309,
+   "booth": 0,
    "booths": 0
   },
   {
@@ -51,8 +51,8 @@
    "ga": 0,
    "vip": 0,
    "pkg": 0,
-   "rev": 0.0,
-   "booth": 0.0,
+   "rev": 0,
+   "booth": 0,
    "booths": 0
   },
   {
@@ -61,7 +61,7 @@
    "vip": 0,
    "pkg": 0,
    "rev": 772.5,
-   "booth": 0.0,
+   "booth": 0,
    "booths": 0
   },
   {
@@ -70,7 +70,7 @@
    "vip": 1,
    "pkg": 0,
    "rev": 1953.91,
-   "booth": 8000.0,
+   "booth": 8000,
    "booths": 2
   },
   {
@@ -79,7 +79,7 @@
    "vip": 1,
    "pkg": 0,
    "rev": 2477.05,
-   "booth": 6180.0,
+   "booth": 6180,
    "booths": 3
   },
   {
@@ -88,7 +88,7 @@
    "vip": 1,
    "pkg": 0,
    "rev": 1696.41,
-   "booth": 0.0,
+   "booth": 0,
    "booths": 0
   },
   {
@@ -97,7 +97,7 @@
    "vip": 2,
    "pkg": 0,
    "rev": 2488.27,
-   "booth": 17180.0,
+   "booth": 17180,
    "booths": 3
   },
   {
@@ -105,8 +105,8 @@
    "ga": 0,
    "vip": 2,
    "pkg": 0,
-   "rev": 0.0,
-   "booth": 0.0,
+   "rev": 0,
+   "booth": 0,
    "booths": 0
   },
   {
@@ -114,8 +114,8 @@
    "ga": 0,
    "vip": 0,
    "pkg": 0,
-   "rev": 0.0,
-   "booth": 0.0,
+   "rev": 0,
+   "booth": 0,
    "booths": 0
   },
   {
@@ -124,7 +124,7 @@
    "vip": 0,
    "pkg": 0,
    "rev": 849.75,
-   "booth": 4500.0,
+   "booth": 4500,
    "booths": 1
   },
   {
@@ -133,7 +133,7 @@
    "vip": 2,
    "pkg": 0,
    "rev": 180.25,
-   "booth": 0.0,
+   "booth": 0,
    "booths": 0
   },
   {
@@ -142,7 +142,7 @@
    "vip": 0,
    "pkg": 0,
    "rev": 1319.43,
-   "booth": 3502.0,
+   "booth": 3502,
    "booths": 1
   },
   {
@@ -151,7 +151,7 @@
    "vip": 5,
    "pkg": 0,
    "rev": 5877.22,
-   "booth": 9785.0,
+   "booth": 9785,
    "booths": 2
   },
   {
@@ -160,7 +160,7 @@
    "vip": 1,
    "pkg": 0,
    "rev": 848.21,
-   "booth": 14635.0,
+   "booth": 14635,
    "booths": 3
   },
   {
@@ -168,8 +168,8 @@
    "ga": 0,
    "vip": 0,
    "pkg": 0,
-   "rev": 0.0,
-   "booth": 0.0,
+   "rev": 0,
+   "booth": 0,
    "booths": 0
   },
   {
@@ -177,8 +177,8 @@
    "ga": 0,
    "vip": 0,
    "pkg": 0,
-   "rev": 0.0,
-   "booth": 0.0,
+   "rev": 0,
+   "booth": 0,
    "booths": 0
   },
   {
@@ -186,8 +186,8 @@
    "ga": 7,
    "vip": 0,
    "pkg": 0,
-   "rev": 721.0,
-   "booth": 9150.0,
+   "rev": 721,
+   "booth": 9150,
    "booths": 2
   },
   {
@@ -196,7 +196,7 @@
    "vip": 2,
    "pkg": 0,
    "rev": 3744.57,
-   "booth": 4635.0,
+   "booth": 4635,
    "booths": 2
   },
   {
@@ -205,7 +205,7 @@
    "vip": 1,
    "pkg": 0,
    "rev": 6291.14,
-   "booth": 20270.0,
+   "booth": 20270,
    "booths": 3
   },
   {
@@ -214,7 +214,7 @@
    "vip": 2,
    "pkg": 0,
    "rev": 4122.06,
-   "booth": 5000.0,
+   "booth": 5000,
    "booths": 1
   },
   {
@@ -223,7 +223,7 @@
    "vip": 3,
    "pkg": 0,
    "rev": 3942.09,
-   "booth": 4000.0,
+   "booth": 4000,
    "booths": 2
   },
   {
@@ -232,7 +232,7 @@
    "vip": 3,
    "pkg": 0,
    "rev": 3128.73,
-   "booth": 13390.0,
+   "booth": 13390,
    "booths": 4
   },
   {
@@ -241,27 +241,66 @@
    "vip": 5,
    "pkg": 0,
    "rev": 7313.03,
-   "booth": 0.0,
+   "booth": 0,
+   "booths": 0
+  },
+  {
+   "date": "2026-11-09",
+   "ga": 99,
+   "vip": 6,
+   "pkg": 0,
+   "rev": 8412.54,
+   "booth": 13000,
+   "booths": 3
+  },
+  {
+   "date": "2026-11-10",
+   "ga": 43,
+   "vip": 16,
+   "pkg": 0,
+   "rev": 8833.19,
+   "booth": 3000,
+   "booths": 1
+  },
+  {
+   "date": "2026-11-11",
+   "ga": 26,
+   "vip": 2,
+   "pkg": 0,
+   "rev": 4998.08,
+   "booth": 0,
+   "booths": 0
+  },
+  {
+   "date": "2026-11-12",
+   "ga": 19,
+   "vip": 0,
+   "pkg": 0,
+   "rev": 1802.5,
+   "booth": 13390,
+   "booths": 1
+  },
+  {
+   "date": "2026-11-13",
+   "ga": 0,
+   "vip": 0,
+   "pkg": 0,
+   "rev": 0,
+   "booth": 0,
+   "booths": 0
+  },
+  {
+   "date": "2026-11-14",
+   "ga": 0,
+   "vip": 0,
+   "pkg": 0,
+   "rev": 0,
+   "booth": 0,
    "booths": 0
   }
  ],
  "tasks": {
-  "date": "2026-11-08",
-  "items": [
-   {
-    "id": "r1108-a",
-    "owner": "Kyle",
-    "ch": "Organic",
-    "title": "Confirm scheduled reel + stories posted (FB, IG, TikTok, YT Shorts)",
-    "done": false
-   },
-   {
-    "id": "1108-1",
-    "owner": "Kyle",
-    "ch": "Email",
-    "title": "Scheduled: see you Tuesday (registered only)",
-    "done": false
-   }
-  ]
+  "date": "2026-11-14",
+  "items": []
  }
 }
